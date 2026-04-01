@@ -1,0 +1,538 @@
+================================================================================
+
+              MANUAL DE IDENTIDAD CORPORATIVA
+
+                    INTERAMBIENTE
+           Asesoría en Cumplimiento Medioambiental
+
+                        2025
+
+     Documento confidencial — Uso interno y colaboradores autorizados
+
+================================================================================
+
+
+────────────────────────────────────────────────────────────────────────────────
+  CONTENIDOS
+────────────────────────────────────────────────────────────────────────────────
+
+  01  La Marca
+  02  El Logotipo
+  03  Versiones del Logo
+  04  Integración como la A de InterAmbiente
+  05  Paleta de Colores
+  06  Tipografía Corporativa
+  07  Área de Protección y Tamaños Mínimos
+  08  Usos Incorrectos
+  09  Aplicaciones de Marca
+  10  Papelería Corporativa
+  11  Medios Digitales y Redes Sociales
+  12  Tono de Comunicación
+  13  Contacto
+
+
+================================================================================
+  01 — LA MARCA
+================================================================================
+
+  QUIÉNES SOMOS
+  ─────────────
+
+  Interambiente es una empresa asesora especializada en cumplimiento
+  medioambiental, orientada a convertir las obligaciones normativas en
+  oportunidades de rentabilidad para sus clientes. Combinamos rigor técnico,
+  innovación tecnológica y un compromiso genuino con la sostenibilidad para
+  ofrecer un acompañamiento integral.
+
+  Nuestro enfoque va más allá del cumplimiento: ayudamos a nuestros clientes
+  a rentabilizar el esfuerzo medioambiental, transformando las regulaciones
+  ambientales en ventajas competitivas tangibles para su comunicación
+  corporativa y su modelo de negocio.
+
+
+  MISIÓN
+  ──────
+
+  Acompañar a empresas y organizaciones en su camino hacia el cumplimiento
+  medioambiental, maximizando el retorno de inversión de cada acción sostenible
+  mediante las últimas tecnologías y un asesoramiento experto, transparente y a
+  largo plazo.
+
+
+  VISIÓN
+  ──────
+
+  Ser referentes en asesoría de cumplimiento medioambiental en Latinoamérica,
+  reconocidos por convertir la sostenibilidad en la ventaja competitiva más
+  rentable de nuestros clientes.
+
+
+  VALORES CORPORATIVOS
+  ────────────────────
+
+  ⚖  HONESTIDAD
+     Transparencia total en cada proceso, diagnóstico y recomendación.
+
+  🤝 COMPROMISO
+     Relaciones a largo plazo basadas en resultados medibles.
+
+  🛡  RESPONSABILIDAD
+     Cada acción tiene un impacto; asumimos la responsabilidad del nuestro.
+
+  ★  CONFIANZA
+     Construimos credibilidad con hechos, datos y cumplimiento.
+
+
+================================================================================
+  02 — EL LOGOTIPO
+================================================================================
+
+  CONCEPTO Y SIMBOLOGÍA
+  ─────────────────────
+
+  El logotipo de Interambiente sintetiza la esencia de nuestra actividad a
+  través de dos elementos gráficos fundamentales:
+
+  EL TRIÁNGULO — Símbolo universal de estabilidad, solidez y dirección
+  ascendente. Representa la montaña, la tierra, y la aspiración constante
+  hacia la mejora. Su forma geométrica transmite fiabilidad técnica y rigor
+  profesional. El color terracota (#BD5817) evoca la tierra, la materialidad
+  y las raíces profundas del compromiso medioambiental.
+
+  LAS OLAS — Representan el agua, la fluidez y la adaptabilidad. Simbolizan
+  la capacidad de navegación normativa y la flexibilidad de nuestras
+  soluciones. El azul oceánico (#2E6B8A) transmite profundidad, conocimiento
+  técnico y confianza.
+
+  La integración del agua dentro de la estructura terrestre crea una metáfora
+  visual de equilibrio entre actividad humana y naturaleza: el objetivo
+  central de todo cumplimiento medioambiental.
+
+
+  COMPONENTES DEL LOGO
+  ────────────────────
+
+  El logotipo consta de dos elementos:
+
+  • ISOTIPO (símbolo): Triángulo con olas integradas
+  • LOGOTIPO (texto): INTERAMBIENTE en tipografía Bebas Neue
+
+  Estos elementos pueden funcionar juntos o de forma independiente según el
+  contexto de aplicación.
+
+
+================================================================================
+  03 — VERSIONES DEL LOGO
+================================================================================
+
+  VERSIÓN A COLOR (PRINCIPAL)
+  ───────────────────────────
+  Versión preferente para la mayoría de aplicaciones.
+  Triángulo: #BD5817 (Terracota)
+  Olas: #2E6B8A (Azul oceánico)
+  Texto: #BD5817 (Terracota)
+  Fondo: Blanco o claro
+
+  VERSIÓN EN MODO OSCURO
+  ──────────────────────
+  Para fondos oscuros o negros.
+  Triángulo: #FFFFFF (Blanco)
+  Olas: #3A8BB2 (Azul claro)
+  Texto: #FFFFFF (Blanco)
+  Fondo: Negro u oscuro
+
+  VERSIÓN MONOCROMÁTICA TERRACOTA
+  ───────────────────────────────
+  Para aplicaciones donde no es posible usar color.
+  Triángulo: #BD5817
+  Olas: #BD5817 al 60% opacidad
+  Texto: #BD5817
+  Fondo: Blanco
+
+  VERSIÓN MONOCROMÁTICA NEGRO
+  ───────────────────────────
+  Triángulo: #1A1A1A
+  Olas: #1A1A1A al 50% opacidad
+  Texto: #1A1A1A
+  Fondo: Blanco
+
+  SOLO ISOTIPO (SIN NOMBRE)
+  ─────────────────────────
+  El isotipo puede utilizarse sin el nombre cuando la marca ya está
+  contextualizada (favicon, iconos de app, marcas de agua, sellos).
+
+  SOBRE FONDO TERRACOTA
+  ─────────────────────
+  Triángulo: Blanco
+  Olas: Blanco al 70% opacidad
+  Texto: Blanco
+  Fondo: #BD5817
+
+  SOBRE FONDO MARRÓN
+  ──────────────────
+  Triángulo: #D79410 (Dorado)
+  Olas: Blanco al 60% opacidad
+  Texto: #D79410 (Dorado)
+  Fondo: #624914
+
+
+================================================================================
+  04 — INTEGRACIÓN COMO LA A DE INTERAMBIENTE
+================================================================================
+
+  CONCEPTO
+  ────────
+
+  El isotipo de Interambiente (triángulo con olas) tiene una forma que evoca
+  naturalmente la letra A. Esta característica permite una integración creativa:
+  sustituir la primera A de "InterAmbiente" por el propio isotipo, creando una
+  firma visual única y reconocible.
+
+  Esta variante está diseñada para aplicaciones premium y editoriales donde se
+  busca un impacto visual superior y un reconocimiento inmediato de la marca.
+
+  Representación:  INTER[△]MBIENTE
+  (donde [△] representa el isotipo en lugar de la letra A)
+
+
+  VERSIONES DISPONIBLES
+  ─────────────────────
+
+  • Color sobre fondo claro: Texto negro, isotipo-A en colores corporativos
+  • Dorado sobre fondo oscuro: Texto blanco, triángulo dorado, olas azul claro
+
+
+  NORMAS DE USO
+  ─────────────
+
+  • Tamaño mínimo: 30mm de ancho en impresos y 250px en digital
+  • No combinar con el isotipo separado en el mismo soporte
+  • Solo utilizar cuando el tamaño permita la legibilidad del isotipo integrado
+
+
+================================================================================
+  05 — PALETA DE COLORES
+================================================================================
+
+  COLORES PRIMARIOS
+  ─────────────────
+
+  ┌──────────────────────────────────────────┐
+  │  TERRACOTA                               │
+  │  HEX: #BD5817                            │
+  │  RGB: 189, 88, 23                        │
+  │  CMYK: 14, 73, 100, 4                    │
+  │  Pantone: 7584 C                         │
+  └──────────────────────────────────────────┘
+
+  ┌──────────────────────────────────────────┐
+  │  MARRÓN TIERRA                           │
+  │  HEX: #624914                            │
+  │  RGB: 98, 73, 20                         │
+  │  CMYK: 34, 48, 88, 42                    │
+  │  Pantone: 7561 C                         │
+  └──────────────────────────────────────────┘
+
+  ┌──────────────────────────────────────────┐
+  │  DORADO ÁMBAR                            │
+  │  HEX: #D79410                            │
+  │  RGB: 215, 148, 16                       │
+  │  CMYK: 12, 40, 96, 1                     │
+  │  Pantone: 7563 C                         │
+  └──────────────────────────────────────────┘
+
+
+  COLOR COMPLEMENTARIO
+  ────────────────────
+
+  ┌──────────────────────────────────────────┐
+  │  AZUL OCEÁNICO                           │
+  │  HEX: #2E6B8A                            │
+  │  RGB: 46, 107, 138                       │
+  │  CMYK: 76, 38, 18, 8                     │
+  └──────────────────────────────────────────┘
+
+  ┌──────────────────────────────────────────┐
+  │  AZUL CLARO                              │
+  │  HEX: #3A8BB2                            │
+  │  RGB: 58, 139, 178                       │
+  │  CMYK: 66, 24, 10, 2                     │
+  └──────────────────────────────────────────┘
+
+  ┌──────────────────────────────────────────┐
+  │  AZUL PROFUNDO                           │
+  │  HEX: #1A4D63                            │
+  │  RGB: 26, 77, 99                         │
+  │  CMYK: 85, 47, 28, 24                    │
+  └──────────────────────────────────────────┘
+
+
+  COLORES NEUTROS
+  ───────────────
+
+  Negro:   #1A1A1A  |  RGB: 26, 26, 26
+  Gris:    #6B6B6B  |  RGB: 107, 107, 107
+  Crema:   #E8E4DF  |  RGB: 232, 228, 223
+  Marfil:  #F8F6F3  |  RGB: 248, 246, 243
+
+
+  PROPORCIONES DE USO
+  ───────────────────
+
+  60%  Colores neutros (blanco, crema) — fondos y espacios
+  30%  Colores primarios (terracota, marrón, dorado) — elementos de marca
+  10%  Color complementario (azul) — acentos visuales
+
+
+================================================================================
+  06 — TIPOGRAFÍA CORPORATIVA
+================================================================================
+
+  TIPOGRAFÍA PRINCIPAL — POETSEN ONE
+  ──────────────────────────────────
+
+  Tipografía sans-serif con carácter redondeado y amigable. Aporta calidez
+  y modernidad a la marca.
+
+  Fuente: Google Fonts — fonts.google.com/specimen/Poetsen+One
+
+  Uso: Subtítulos, destacados, eslóganes y elementos de diseño que requieran
+  cercanía y personalidad.
+
+
+  TIPOGRAFÍA DE DISPLAY — BEBAS NEUE
+  ──────────────────────────────────
+
+  Tipografía condensada de solo mayúsculas con gran impacto visual. Refuerza
+  la autoridad y solidez de la marca.
+
+  Fuente: Google Fonts — fonts.google.com/specimen/Bebas+Neue
+
+  Uso: Logotipo, titulares principales, encabezados grandes y señalética.
+  Bebas Neue solo incluye mayúsculas, lo cual refuerza la autoridad de la marca.
+
+
+  TIPOGRAFÍA DE APOYO — SISTEMA SANS-SERIF
+  ────────────────────────────────────────
+
+  Para cuerpos de texto extensos y documentos donde no se disponga de las
+  tipografías corporativas: Arial, Helvetica o Segoe UI.
+
+  Uso: Cuerpo de texto, documentos corporativos, correos electrónicos,
+  presentaciones internas.
+
+
+  JERARQUÍA TIPOGRÁFICA
+  ─────────────────────
+
+  Nivel               Tipografía          Tamaño      Uso
+  ─────────────────── ─────────────────── ─────────── ─────────────────────────
+  Títulos principales Bebas Neue          32-48pt     Portadas, encabezados
+  Subtítulos          Poetsen One         22-28pt     Subencabezados, destacados
+  Destacados          Poetsen One         16-18pt     Eslóganes, CTAs
+  Cuerpo de texto     Arial / Sans-serif  11-14pt     Textos largos
+  Notas               Arial / Sans-serif   9-10pt     Pies de página
+
+
+================================================================================
+  07 — ÁREA DE PROTECCIÓN Y TAMAÑOS MÍNIMOS
+================================================================================
+
+  ÁREA DE PROTECCIÓN
+  ──────────────────
+
+  El logotipo necesita un espacio libre alrededor para garantizar su correcta
+  visibilidad. Este espacio se define usando como unidad de medida la altura
+  de las olas del isotipo (módulo X).
+
+  Se debe mantener 1X de espacio libre en todos los lados del logotipo.
+  Ningún elemento gráfico, texto o borde debe invadir esta zona.
+
+
+  TAMAÑOS MÍNIMOS DE REPRODUCCIÓN
+  ────────────────────────────────
+
+  Elemento                        Impreso         Digital
+  ─────────────────────────────── ─────────────── ───────────────
+  Logo completo (isotipo + texto) 25 mm ancho     180 px ancho
+  Solo isotipo                    12 mm ancho      80 px ancho
+  Favicon / ícono de app          —               16 x 16 px
+  Integración como A              30 mm ancho     250 px ancho
+
+
+================================================================================
+  08 — USOS INCORRECTOS
+================================================================================
+
+  Para mantener la integridad y el reconocimiento de marca, las siguientes
+  modificaciones están ESTRICTAMENTE PROHIBIDAS:
+
+  ✕  No deformar ni estirar el logotipo. Mantener proporciones originales.
+  ✕  No rotar ni inclinar el logotipo en ningún ángulo.
+  ✕  No aplicar sombras, relieves, gradientes ni efectos visuales.
+  ✕  No cambiar los colores corporativos por otros no autorizados.
+  ✕  No reducir la opacidad por debajo del 80% (excepto marca de agua).
+  ✕  No colocar sobre fondos que dificulten la lectura.
+  ✕  No añadir contornos, bordes ni elementos decorativos al logotipo.
+  ✕  No modificar la tipografía del nombre INTERAMBIENTE.
+  ✕  No separar las olas del triángulo ni reorganizar elementos del isotipo.
+  ✕  No utilizar versiones de baja resolución en materiales impresos.
+
+
+================================================================================
+  09 — APLICACIONES DE MARCA
+================================================================================
+
+  PRESENTACIONES CORPORATIVAS
+  ───────────────────────────
+
+  • Portada: Degradado terracota-marrón con logo centrado en blanco
+  • Diapositivas internas: Fondo blanco, isotipo pequeño en esquina superior,
+    barra inferior en terracota
+  • Títulos en Bebas Neue, subtítulos en Poetsen One
+  • Fotografía de alta calidad: medio ambiente, tecnología, industria
+
+  MATERIALES DE MARKETING
+  ───────────────────────
+
+  • Folletos: Enfoque limpio con llamada a la acción clara
+  • Informes anuales: Estilo editorial premium, fondo oscuro, tipografía dorada
+  • Banners publicitarios: Proporción de color 60-30-10
+  • Infografías: Datos visualizados con la paleta corporativa
+
+
+================================================================================
+  10 — PAPELERÍA CORPORATIVA
+================================================================================
+
+  TARJETAS DE PRESENTACIÓN
+  ────────────────────────
+
+  Formato: 90 x 55 mm (vertical u horizontal)
+  Papel: Couché 350g, acabado mate con barniz selectivo en isotipo
+  Impresión: 4/0 tintas (CMYK)
+
+  Frente: Fondo blanco, isotipo superior izquierdo, nombre y cargo en
+  Poetsen One, datos de contacto en sans-serif.
+
+  Reverso: Degradado terracota-marrón con logo completo centrado en blanco.
+  Eslogan "Cumplimiento que Rentabiliza" en la parte inferior.
+
+
+  HOJA MEMBRETADA
+  ───────────────
+
+  Formato: A4 (210 x 297 mm)
+  Logo: Esquina superior izquierda, 45mm ancho
+  Pie de página: Datos de contacto + barra terracota
+  Márgenes: Superior 30mm, inferior 25mm, laterales 25mm
+
+
+  SOBRE CORPORATIVO
+  ─────────────────
+
+  Formato: DL (220 x 110 mm)
+  Isotipo en la solapa, logotipo completo en esquina inferior izquierda
+  Impresión: 2 tintas (terracota y azul)
+
+
+  CARPETA CORPORATIVA
+  ───────────────────
+
+  Formato: A4 con bolsillo interior
+  Portada: Degradado terracota-marrón, logo en blanco centrado
+  Acabado: Laminado mate + barniz UV selectivo en isotipo
+
+
+================================================================================
+  11 — MEDIOS DIGITALES Y REDES SOCIALES
+================================================================================
+
+  SITIO WEB
+  ─────────
+
+  • Fondo predominante: Blanco / Marfil (#F8F6F3)
+  • Botones: Terracota (#BD5817) con texto blanco
+  • Enlaces activos / hover: Dorado (#D79410)
+  • Tipografías: Poetsen One (subtítulos), Bebas Neue (titulares)
+  • Carga de fuentes: Google Fonts
+
+  REDES SOCIALES
+  ──────────────
+
+  • Foto de perfil: Isotipo sobre fondo marfil (#F8F6F3)
+  • Portadas/banners: Degradado corporativo con logo en blanco
+  • Publicaciones feed: Estilo limpio, predominancia de blancos con acentos
+  • Stories: Formato vertical, barra superior terracota con isotipo
+
+  FIRMA DE EMAIL
+  ──────────────
+
+  Estructura:
+  [Isotipo 50px] | Nombre (Poetsen One)
+                 | Cargo (color terracota)
+                 | Teléfono | email
+                 | interambiente.com (marrón, negrita)
+
+  Separador: Línea vertical terracota entre isotipo y datos
+
+
+================================================================================
+  12 — TONO DE COMUNICACIÓN
+================================================================================
+
+  VOZ DE MARCA
+  ────────────
+
+  Interambiente comunica con AUTORIDAD ACCESIBLE. Somos expertos que hablan
+  en un lenguaje claro y comprensible, evitando jerga excesivamente técnica
+  cuando no es necesario.
+
+
+  SOMOS:
+  Profesionales, cercanos, transparentes, orientados a soluciones, optimistas
+  respecto al potencial del cumplimiento medioambiental, tecnológicamente
+  avanzados.
+
+  NO SOMOS:
+  Alarmistas, condescendientes, excesivamente técnicos sin contexto, agresivos
+  comercialmente, vagos o genéricos en nuestras recomendaciones.
+
+
+  ESLÓGANES APROBADOS
+  ───────────────────
+
+  Principal:    "Cumplimiento que Rentabiliza"
+  Secundario:   "Tu aliado en cumplimiento medioambiental"
+  Alternativo:  "Innovación al servicio del medio ambiente"
+
+
+  TECNOLOGÍA EN LA COMUNICACIÓN
+  ─────────────────────────────
+
+  Como marca innovadora que implementa las últimas tecnologías, nuestras
+  comunicaciones deben reflejar esta visión de futuro. Se recomienda integrar
+  referencias a herramientas digitales, automatización de procesos, monitoreo
+  en tiempo real y análisis de datos, mostrando cómo la tecnología potencia
+  el cumplimiento medioambiental.
+
+
+================================================================================
+  13 — CONTACTO
+================================================================================
+
+                        INTERAMBIENTE
+              Asesoría en Cumplimiento Medioambiental
+
+                   ─────────────────────
+
+                   info@interambiente.com
+                   www.interambiente.com
+
+
+================================================================================
+
+  © 2025 Interambiente. Todos los derechos reservados.
+  Este manual es de uso exclusivo para colaboradores y socios autorizados.
+
+================================================================================

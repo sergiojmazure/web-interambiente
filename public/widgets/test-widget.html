@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 2rem;
+            text-align: center;
+        }
+        .cliente-dummy-box {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Esto sería para que el background del widget no sea blanco puro si sus letras son blancas.
+           Nota: SelloCertificado tiene letras blancas girando. Haremos un div negro para albergarlo.
+        */
+        .client-dark-theme-area {
+            background-color: #111;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cliente-dummy-box">
+        <h1>Página Web de un Cliente Externo</h1>
+        <p>Este es el HTML de una web en WordPress o Shopify. Abajo insertaron tu Widget 3D.</p>
+        
+        <div class="client-dark-theme-area">
+            <!-- AQUÍ SE INYECTA EL WIDGET -->
+            <div id="sello-interambiente"></div>
+        </div>
+    </div>
+
+    <!-- Script del Widget Compilado -->
+    <script src="./widgets/sello.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poetsen+One&display=swap');
+
+:root {
+  /* Brand Colors */
+  --color-primary: #BD5817; /* Terracota */
+  --color-secondary: #624914; /* Marrón Tierra */
+  --color-accent: #D79410; /* Dorado Ámbar */
+  --color-complementary: #2E6B8A; /* Azul Oceánico */
+  --color-complementary-light: #3A8BB2; /* Azul Claro */
+  
+  /* Neutral Colors */
+  --color-text: #1A1A1A; /* Negro */
+  --color-text-muted: #6B6B6B; /* Gris */
+  --color-bg-light: #F8F6F3; /* Marfil */
+  --color-bg-alt: #E8E4DF; /* Crema */
+  --color-bg: #FFFFFF;
+
+  /* Typography */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-subtitle: 'Poetsen One', sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-xxl: 8rem;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+  font-family: var(--font-subtitle);
+  font-weight: normal;
+  margin-bottom: var(--space-md);
+  color: var(--color-secondary);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-xl) 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-family: var(--font-subtitle);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  border: none;
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(189, 88, 23, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(215, 148, 16, 0.3);
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* Premium gradient section */
+.bg-gradient {
+  background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-bg-alt) 100%);
+}
+
+.bg-dark {
+  background-color: var(--color-text);
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-lg);
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+}
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
