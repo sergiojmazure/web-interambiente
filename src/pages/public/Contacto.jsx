@@ -92,28 +92,8 @@ export default function Contacto() {
         </div>
       </section>
 
-      {/* FAQ SEO Section */}
-      <section className="section bg-light" style={{ marginTop: '-4rem' }}>
-        <div className="container">
-          <div className="text-center" style={{ marginBottom: 'var(--space-xl)' }}>
-            <h2 className="heading-secondary">Preguntas Frecuentes (FAQ)</h2>
-            <p className="text-muted">Despeja tus dudas maestras sobre normativas antes de hablarnos.</p>
-          </div>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="card" style={{ padding: 'var(--space-lg)' }}>
-                {faq.icon}
-                <h3 style={{ fontSize: '1.2rem', marginBottom: '12px', color: 'var(--color-secondary)' }}>{faq.q}</h3>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Form & Info */}
-      <section className="section">
+      <section className="section" style={{ marginTop: '-4rem', position: 'relative', zIndex: 10 }}>
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px' }}>
           
           {/* Form */}
@@ -214,6 +194,26 @@ export default function Contacto() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* FAQ SEO Section */}
+      <section className="section bg-light">
+        <div className="container">
+          <div className="text-center" style={{ marginBottom: 'var(--space-xl)' }}>
+            <h2 className="heading-secondary">Preguntas Frecuentes (FAQ)</h2>
+            <p className="text-muted">Despeja tus dudas maestras sobre normativas antes de hablarnos.</p>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="card" style={{ padding: 'var(--space-lg)' }}>
+                {faq.icon}
+                <h3 style={{ fontSize: '1.2rem', marginBottom: '12px', color: 'var(--color-secondary)' }}>{faq.q}</h3>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{faq.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
