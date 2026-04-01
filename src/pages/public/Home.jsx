@@ -1,6 +1,6 @@
 import { ArrowRight, BarChart2, Leaf, ShieldCheck, Globe, Send, User, Mail, MessageSquare } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ShaderBackground } from '../../components/ui/HeroShader';
 import { SelloCertificado } from '../../components/ui/SelloCertificado';
 import SEO from '../../components/SEO';
@@ -19,9 +19,35 @@ export default function Home() {
     }
   }, [hash]);
 
-  const handleContactSubmit = (e) => {
+  const [formData, setFormData] = useState({ nombre: '', email: '', mensaje: '' });
+  const [status, setStatus] = useState('idle');
+
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
-    alert("Función de contacto simulada. Esto se enviará próximamente al Backend.");
+    setStatus('loading');
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/soastec@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            Asunto: "Lead desde la Landing Page - Interambiente",
+            Nombre: formData.nombre,
+            Email: formData.email,
+            Mensaje: formData.mensaje
+        })
+      });
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ nombre: '', email: '', mensaje: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -59,9 +85,9 @@ export default function Home() {
             <Link to="/servicios" className="btn btn-primary" style={{ border: 'none', background: '#ffffff', color: '#064e3b' }}>
               Nuestros Servicios <ArrowRight size={20} style={{ marginLeft: '8px' }} />
             </Link>
-            <a href="/#contacto" className="btn btn-secondary" style={{ color: '#fff', border: '1px solid rgba(255,255,255,0.3)', background: 'transparent' }}>
+            <Link to="/contacto" className="btn btn-secondary" style={{ color: '#fff', border: '1px solid rgba(255,255,255,0.3)', background: 'transparent' }}>
               Agendar Consulta
-            </a>
+            </Link>
           </div>
         </div>
         <SelloCertificado />
@@ -111,59 +137,79 @@ export default function Home() {
           </div>
 
           <div className="glass-panel" style={{ padding: 'var(--space-xl)' }}>
-            <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-              
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'var(--space-md)' }}>
-                {/* Nombre */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <label htmlFor="nombre" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <User size={18} color="var(--color-primary)" /> Nombre Completo
-                  </label>
-                  <input 
-                    type="text" 
-                    id="nombre" 
-                    required 
-                    placeholder="Ej. María Pérez"
-                    style={inputStyle} 
-                  />
+            {status === 'success' ? (
+              <div style={{ background: 'rgba(22, 163, 74, 0.1)', color: '#166534', padding: '24px', borderRadius: '12px', textAlign: 'center', border: '1px solid rgba(22, 163, 74, 0.2)' }}>
+                <h3 style={{ margin: '0 0 8px 0' }}>¡Mensaje Enviado!</h3>
+                <p style={{ margin: 0 }}>Nuestros ingenieros se contactarán contigo muy pronto.</p>
+                <button className="btn btn-outline" style={{ marginTop: '16px', background: 'transparent', borderColor: '#166534', color: '#166534' }} onClick={() => setStatus('idle')}>Enviar otro mensaje</button>
+              </div>
+            ) : (
+              <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
+                
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'var(--space-md)' }}>
+                  {/* Nombre */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <label htmlFor="nombre" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <User size={18} color="var(--color-primary)" /> Nombre Completo
+                    </label>
+                    <input 
+                      type="text" 
+                      id="nombre" 
+                      required 
+                      value={formData.nombre}
+                      onChange={e => setFormData({...formData, nombre: e.target.value})}
+                      placeholder="Ej. María Pérez"
+                      style={inputStyle} 
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <label htmlFor="email" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <Mail size={18} color="var(--color-primary)" /> Correo Electrónico
+                    </label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      required 
+                      value={formData.email}
+                      onChange={e => setFormData({...formData, email: e.target.value})}
+                      placeholder="maria@empresa.com"
+                      style={inputStyle} 
+                    />
+                  </div>
                 </div>
 
-                {/* Email */}
+                {/* Mensaje */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <label htmlFor="email" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Mail size={18} color="var(--color-primary)" /> Correo Electrónico
+                  <label htmlFor="mensaje" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <MessageSquare size={18} color="var(--color-primary)" /> ¿En qué podemos ayudarte?
                   </label>
-                  <input 
-                    type="email" 
-                    id="email" 
+                  <textarea 
+                    id="mensaje" 
                     required 
-                    placeholder="maria@empresa.com"
-                    style={inputStyle} 
-                  />
+                    rows="5"
+                    value={formData.mensaje}
+                    onChange={e => setFormData({...formData, mensaje: e.target.value})}
+                    placeholder="Quisiera información sobre consultoría ESG..."
+                    style={{...inputStyle, resize: 'vertical' }} 
+                  ></textarea>
                 </div>
-              </div>
 
-              {/* Mensaje */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label htmlFor="mensaje" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <MessageSquare size={18} color="var(--color-primary)" /> ¿En qué podemos ayudarte?
-                </label>
-                <textarea 
-                  id="mensaje" 
-                  required 
-                  rows="5"
-                  placeholder="Quisiera información sobre consultoría ESG..."
-                  style={{...inputStyle, resize: 'vertical' }} 
-                ></textarea>
-              </div>
+                {status === 'error' && (
+                  <p style={{ color: '#ef4444', fontSize: '0.9rem', margin: 0, textAlign: 'right' }}>Ocurrió un error al enviar tu mensaje. Intenta nuevamente.</p>
+                )}
 
-              <div style={{ textAlign: 'right', marginTop: 'var(--space-md)' }}>
-                <button type="submit" className="btn btn-primary" style={{ minWidth: '200px', fontSize: '1.2rem' }}>
-                  <Send size={20} style={{ marginRight: '8px' }} /> Enviar Mensaje
-                </button>
-              </div>
+                <div style={{ textAlign: 'right', marginTop: 'var(--space-md)' }}>
+                  <button type="submit" disabled={status === 'loading'} className="btn btn-primary" style={{ minWidth: '200px', fontSize: '1.2rem', opacity: status === 'loading' ? 0.7 : 1 }}>
+                    {status === 'loading' ? 'Enviando...' : (
+                      <><Send size={20} style={{ marginRight: '8px' }} /> Enviar Mensaje</>
+                    )}
+                  </button>
+                </div>
 
-            </form>
+              </form>
+            )}
           </div>
         </div>
       </section>

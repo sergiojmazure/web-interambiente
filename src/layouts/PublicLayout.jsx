@@ -41,7 +41,7 @@ export default function PublicLayout() {
             <Link to="/servicios" style={navLinkStyle}>Servicios</Link>
             <Link to="/clientes" style={navLinkStyle}>Portfolio</Link>
             <Link to="/novedades" style={navLinkStyle}>Novedades</Link>
-            <a href="/#contacto" className="btn btn-primary" style={{ padding: '10px 24px' }}>Contacto</a>
+            <Link to="/contacto" className="btn btn-primary" style={{ padding: '10px 24px' }}>Contacto</Link>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -83,7 +83,7 @@ export default function PublicLayout() {
             <Link to="/servicios" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Servicios</Link>
             <Link to="/clientes" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
             <Link to="/novedades" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Novedades</Link>
-            <a href="/#contacto" className="btn btn-primary" style={{ textAlign: 'center', margin: 'var(--space-md)' }} onClick={() => setIsMenuOpen(false)}>Contacto</a>
+            <Link to="/contacto" className="btn btn-primary" style={{ textAlign: 'center', margin: 'var(--space-md)' }} onClick={() => setIsMenuOpen(false)}>Contacto</Link>
           </nav>
         )}
       </header>
