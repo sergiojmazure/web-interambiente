@@ -25,6 +25,7 @@ function App() {
           <Route path="clientes" element={<Portfolio />} />
           <Route path="novedades" element={<Novedades />} />
           <Route path="novedades/:id" element={<NovedadDetalle />} />
+          <Route path="contacto" element={<Contacto />} />
         </Route>
 
         <Route path="/login" element={<Login />} />
