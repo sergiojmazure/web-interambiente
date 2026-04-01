@@ -118,8 +118,20 @@ export default function PublicLayout() {
               <p style={{ color: 'var(--color-bg-alt)', margin: '0' }}>Av. de los Shyris y Suecia Edf. IQON, Quito.</p>
             </div>
           </div>
-          <div style={{ textAlign: 'center', color: 'var(--color-text-muted)', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: 'var(--space-md)' }}>
-            <p>© {new Date().getFullYear()} Interambiente. Todos los derechos reservados.</p>
+          <div style={{ 
+            display: 'flex', 
+            flexWrap: 'wrap',
+            justifyContent: 'center', 
+            alignItems: 'center',
+            color: 'var(--color-text-muted)', 
+            borderTop: '1px solid rgba(255,255,255,0.1)', 
+            paddingTop: 'var(--space-md)',
+            gap: '16px'
+          }}>
+            <p style={{ margin: 0 }}>© {new Date().getFullYear()} Interambiente. Todos los derechos reservados. | <Link to="/privacidad" style={{ color: 'var(--color-text-muted)', textDecoration: 'underline' }}>Política de Privacidad</Link></p>
+            <p style={{ margin: 0 }}>
+              Diseñado digitalmente por <a href="https://innovacion.ec" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 600 }}>Innovación IA</a>
+            </p>
           </div>
         </div>
       </footer>
