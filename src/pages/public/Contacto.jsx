@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Send, MapPin, Phone, Mail, HelpCircle, AlertCircle, Building, Clock, FileText, CheckCircle } from 'lucide-react';
+import { ShaderBackground } from '../../components/ui/HeroShader';
 import SEO from '../../components/SEO';
 
 export default function Contacto() {
@@ -85,12 +86,14 @@ export default function Contacto() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient section" style={{ paddingBottom: 'var(--space-xxl)' }}>
-        <div className="container text-center">
-          <h1 style={{ color: 'var(--color-secondary)' }}>Estamos aquí para <span style={{ color: 'var(--color-primary)' }}>Ayudarte</span></h1>
-          <p className="subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>Déjanos asegurarnos de que el cumplimiento técnico y legal de tu proyecto sea impecable de principio a fin.</p>
-        </div>
-      </section>
+      <ShaderBackground minHeight="auto">
+        <section className="section" style={{ paddingBottom: 'var(--space-xxl)', width: '100%' }}>
+          <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
+            <h1 style={{ color: '#fff' }}>Estamos aquí para <span style={{ color: '#6ee7b7' }}>Ayudarte</span></h1>
+            <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '600px', margin: '0 auto' }}>Déjanos asegurarnos de que el cumplimiento técnico y legal de tu proyecto sea impecable de principio a fin.</p>
+          </div>
+        </section>
+      </ShaderBackground>
 
       {/* Contact Form & Info */}
       <section className="section" style={{ marginTop: '-4rem', position: 'relative', zIndex: 10 }}>
