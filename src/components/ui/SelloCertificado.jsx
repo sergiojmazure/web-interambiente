@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export function SelloCertificado({ isWidget = false, clientName = '' }) {
   return (
     <a 
-      href="https://interambientesa.com" 
+      href="https://web-interambiente.vercel.app" 
       target="_blank" 
       rel="noopener noreferrer"
       style={isWidget ? { position: 'relative', display: 'inline-block', width: '80px', height: '80px', margin: 'auto', cursor: 'pointer', zIndex: 30, textDecoration: 'none', WebkitTapHighlightColor: 'transparent' } : { position: 'absolute', bottom: '2rem', right: '3rem', zIndex: 50, cursor: 'pointer', textDecoration: 'none', WebkitTapHighlightColor: 'transparent' }}
@@ -59,7 +59,7 @@ export function SelloCertificado({ isWidget = false, clientName = '' }) {
         {/* Logo Central Interambiente */}
         {/* Aplicamos filtros para volverlo blanco/monocromo y que empate con la estética limpia del halo */}
         <img 
-          src={isWidget ? "https://interambientesa.com/logotipo-interambiente.png" : "/logotipo-interambiente.png"} 
+          src={isWidget ? "https://web-interambiente.vercel.app/logotipo-interambiente.png" : "/logotipo-interambiente.png"} 
           alt="Logo Interambiente" 
           style={{
             position: 'absolute',

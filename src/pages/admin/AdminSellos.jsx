@@ -108,7 +108,7 @@ export default function AdminSellos() {
                   <strong style={{ display: 'block', marginBottom: '8px', color: '#333' }}>Código de Inserción para este Cliente:</strong>
                   <code style={{ display: 'block', whiteSpace: 'pre-wrap', color: '#db2777' }}>
 {`<div id="sello-interambiente" data-client-id="${s.id}"></div>
-<script src="https://interambientesa.com/widgets/sello.js" defer></script>`}
+<script src="https://web-interambiente.vercel.app/widgets/sello.js" defer></script>`}
                   </code>
                 </div>
               </div>

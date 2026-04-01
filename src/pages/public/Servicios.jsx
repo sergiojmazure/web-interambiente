@@ -1,4 +1,5 @@
 import { CheckCircle, Zap, BookOpen, Leaf } from 'lucide-react';
+import { ShaderBackground } from '../../components/ui/HeroShader';
 import SEO from '../../components/SEO';
 
 export default function Servicios() {
@@ -8,12 +9,12 @@ export default function Servicios() {
         title="Servicios Estratégicos | Interambiente" 
         description="Acompañamos a las organizaciones en su transición hacia la sostenibilidad global." 
       />
-      <section className="bg-gradient section" style={{ paddingBottom: 'var(--space-xxl)' }}>
-        <div className="container text-center">
-          <h1 style={{ color: 'var(--color-secondary)' }}>Nuestros <span style={{ color: 'var(--color-primary)' }}>Servicios</span></h1>
-          <p className="subtitle" style={{ maxWidth: '700px', margin: '0 auto' }}>Acompañamos a las organizaciones en su transición hacia la sostenibilidad con un enfoque integral y medible.</p>
+      <ShaderBackground>
+        <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
+          <h1 style={{ color: '#fff' }}>Nuestros <span style={{ color: 'var(--color-primary)' }}>Servicios</span></h1>
+          <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto' }}>Acompañamos a las organizaciones en su transición hacia la sostenibilidad con un enfoque integral y medible.</p>
         </div>
-      </section>
+      </ShaderBackground>
 
       <section className="section" style={{ marginTop: '-4rem' }}>
         <div className="container">
