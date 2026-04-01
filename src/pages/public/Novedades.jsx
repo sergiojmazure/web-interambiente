@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabase';
 import { Newspaper, ChevronRight, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ShaderBackground } from '../../components/ui/HeroShader';
 import SEO from '../../components/SEO';
 
 export default function Novedades() {
@@ -66,12 +67,14 @@ export default function Novedades() {
         title="Novedades y Noticias | Interambiente SA" 
         description="Explora los últimos análisis, tendencias y recuento de los esfuerzos estratégicos en materia ambiental a cargo de nuestros expertos." 
       />
-      <section className="bg-gradient section" style={{ paddingBottom: 'var(--space-xl)' }}>
-        <div className="container text-center">
-          <h1 style={{ color: 'var(--color-secondary)' }}>Noticias y <span style={{ color: 'var(--color-primary)' }}>Novedades</span></h1>
-          <p className="subtitle" style={{ maxWidth: '700px', margin: '0 auto' }}>Análisis, tendencias y comunicados relevantes sobre nuestra labor medioambiental.</p>
-        </div>
-      </section>
+      <ShaderBackground minHeight="auto">
+        <section className="section" style={{ paddingBottom: 'var(--space-xl)', width: '100%' }}>
+          <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
+            <h1 style={{ color: '#fff' }}>Noticias y <span style={{ color: 'var(--color-primary)' }}>Novedades</span></h1>
+            <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto' }}>Análisis, tendencias y comunicados relevantes sobre nuestra labor medioambiental.</p>
+          </div>
+        </section>
+      </ShaderBackground>
 
       <section className="section">
         <div className="container" style={{ maxWidth: '1100px' }}>

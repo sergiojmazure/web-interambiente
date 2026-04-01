@@ -9,14 +9,16 @@ export default function Servicios() {
         title="Servicios Estratégicos | Interambiente" 
         description="Acompañamos a las organizaciones en su transición hacia la sostenibilidad global." 
       />
-      <ShaderBackground minHeight="45vh">
-        <div className="container text-center" style={{ position: 'relative', zIndex: 2, paddingTop: 'calc(var(--space-xxl) + 2rem)' }}>
-          <h1 style={{ color: '#fff' }}>Nuestros <span style={{ color: 'var(--color-primary)' }}>Servicios</span></h1>
-          <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto' }}>Acompañamos a las organizaciones en su transición hacia la sostenibilidad con un enfoque integral y medible.</p>
-        </div>
+      <ShaderBackground minHeight="auto">
+        <section className="section" style={{ paddingBottom: 'var(--space-xl)', width: '100%' }}>
+          <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
+            <h1 style={{ color: '#fff' }}>Nuestros <span style={{ color: 'var(--color-primary)' }}>Servicios</span></h1>
+            <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto' }}>Acompañamos a las organizaciones en su transición hacia la sostenibilidad con un enfoque integral y medible.</p>
+          </div>
+        </section>
       </ShaderBackground>
 
-      <section className="section" style={{ marginTop: '-4rem' }}>
+      <section className="section">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--space-lg)' }}>
             

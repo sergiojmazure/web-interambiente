@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabase';
 import { Briefcase } from 'lucide-react';
+import { ShaderBackground } from '../../components/ui/HeroShader';
 import SEO from '../../components/SEO';
 
 export default function Portfolio() {
@@ -34,12 +35,14 @@ export default function Portfolio() {
         title="Portfolio de Clientes y Certificaciones | Interambiente SA" 
         description="Organizaciones que han confiado su arquitectura sostenible y cumplimiento ambiental a nuestro equipo de técnicos."
       />
-      <section className="bg-gradient section" style={{ paddingBottom: 'var(--space-xl)' }}>
-        <div className="container text-center">
-          <h1 style={{ color: 'var(--color-secondary)' }}>Nuestro <span style={{ color: 'var(--color-primary)' }}>Impacto</span></h1>
-          <p className="subtitle" style={{ maxWidth: '700px', margin: '0 auto' }}>Casos de éxito y portafolio de proyectos integrales de sostenibilidad.</p>
-        </div>
-      </section>
+      <ShaderBackground minHeight="auto">
+        <section className="section" style={{ paddingBottom: 'var(--space-xl)', width: '100%' }}>
+          <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
+            <h1 style={{ color: '#fff' }}>Nuestro <span style={{ color: 'var(--color-primary)' }}>Impacto</span></h1>
+            <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto' }}>Casos de éxito y portafolio de proyectos integrales de sostenibilidad.</p>
+          </div>
+        </section>
+      </ShaderBackground>
 
       <section className="section">
         <div className="container">
