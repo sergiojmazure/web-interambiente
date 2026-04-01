@@ -8,6 +8,7 @@ import Portfolio from './pages/public/Portfolio';
 import Novedades from './pages/public/Novedades';
 import NovedadDetalle from './pages/public/NovedadDetalle';
 import Contacto from './pages/public/Contacto';
+import Privacidad from './pages/public/Privacidad';
 
 import Dashboard from './pages/admin/Dashboard';
 import AdminPortfolio from './pages/admin/AdminPortfolio';
@@ -26,6 +27,7 @@ function App() {
           <Route path="novedades" element={<Novedades />} />
           <Route path="novedades/:id" element={<NovedadDetalle />} />
           <Route path="contacto" element={<Contacto />} />
+          <Route path="privacidad" element={<Privacidad />} />
         </Route>
 
         <Route path="/login" element={<Login />} />

@@ -26,14 +26,16 @@ export default function Home() {
     e.preventDefault();
     setStatus('loading');
     try {
-      const response = await fetch("https://formsubmit.co/ajax/soastec@gmail.com", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
         body: JSON.stringify({
-            Asunto: "Lead desde la Landing Page - Interambiente",
+            access_key: "7fd3c128-d3a1-41e3-a603-76ca148ef9d1",
+            subject: "Nuevo Lead desde la Landing Page - Interambiente",
+            from_name: "Web Interambiente",
             Nombre: formData.nombre,
             Email: formData.email,
             Mensaje: formData.mensaje

@@ -45,17 +45,18 @@ export default function Contacto() {
     e.preventDefault();
     setStatus('loading');
 
-    // Usamos FormSubmit.co con AJAX: Simple, elegante y no requiere backend ni contraseñas.
-    // OJO: El primer envío te mandará un correo a soastec@gmail.com pidiéndote confirmar (Activar).
+    // Usamos Web3Forms para evitar tener un servidor backend, con una Access Key segura.
     try {
-      const response = await fetch("https://formsubmit.co/ajax/soastec@gmail.com", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
         body: JSON.stringify({
-            Asunto: "Nuevo Contacto desde la Web Interambiente",
+            access_key: "7fd3c128-d3a1-41e3-a603-76ca148ef9d1",
+            subject: "Nuevo Lead desde Formulario PRINCIPAL - Interambiente",
+            from_name: "Web Interambiente",
             Nombre: formData.name,
             Email: formData.email,
             Telefono: formData.phone,
