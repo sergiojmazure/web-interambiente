@@ -2,7 +2,7 @@ import { PulsingBorder, MeshGradient } from "@paper-design/shaders-react";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-export function ShaderBackground({ children }) {
+export function ShaderBackground({ children, minHeight = '85vh' }) {
   const containerRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
 
@@ -24,7 +24,7 @@ export function ShaderBackground({ children }) {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ minHeight: '85vh', width: '100%', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div ref={containerRef} style={{ minHeight, width: '100%', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       {/* SVG Filters */}
       <svg style={{ position: 'absolute', top: 0, left: 0, width: 0, height: 0 }}>
         <defs>
