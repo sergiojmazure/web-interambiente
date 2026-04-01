@@ -46,9 +46,9 @@ export default function Contacto() {
     setStatus('loading');
 
     // Usamos FormSubmit.co con AJAX: Simple, elegante y no requiere backend ni contraseñas.
-    // OJO: El primer envío te mandará un correo a a.recalde@interambientesa.com pidiéndote confirmar (Activar).
+    // OJO: El primer envío te mandará un correo a soastec@gmail.com pidiéndote confirmar (Activar).
     try {
-      const response = await fetch("https://formsubmit.co/ajax/a.recalde@interambientesa.com", {
+      const response = await fetch("https://formsubmit.co/ajax/soastec@gmail.com", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
