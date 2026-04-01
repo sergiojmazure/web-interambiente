@@ -38,7 +38,7 @@ export default function Portfolio() {
       <ShaderBackground minHeight="auto">
         <section className="section" style={{ paddingBottom: 'var(--space-xl)', width: '100%' }}>
           <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
-            <h1 style={{ color: '#fff' }}>Nuestro <span style={{ color: 'var(--color-primary)' }}>Impacto</span></h1>
+            <h1 style={{ color: '#fff' }}>Nuestro <span style={{ color: '#6ee7b7' }}>Impacto</span></h1>
             <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto' }}>Casos de éxito y portafolio de proyectos integrales de sostenibilidad.</p>
           </div>
         </section>

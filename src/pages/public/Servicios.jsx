@@ -12,7 +12,7 @@ export default function Servicios() {
       <ShaderBackground minHeight="auto">
         <section className="section" style={{ paddingBottom: 'var(--space-xl)', width: '100%' }}>
           <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
-            <h1 style={{ color: '#fff' }}>Nuestros <span style={{ color: 'var(--color-primary)' }}>Servicios</span></h1>
+            <h1 style={{ color: '#fff' }}>Nuestros <span style={{ color: '#6ee7b7' }}>Servicios</span></h1>
             <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto' }}>Acompañamos a las organizaciones en su transición hacia la sostenibilidad con un enfoque integral y medible.</p>
           </div>
         </section>

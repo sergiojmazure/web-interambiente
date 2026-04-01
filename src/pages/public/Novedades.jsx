@@ -70,7 +70,7 @@ export default function Novedades() {
       <ShaderBackground minHeight="auto">
         <section className="section" style={{ paddingBottom: 'var(--space-xl)', width: '100%' }}>
           <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
-            <h1 style={{ color: '#fff' }}>Noticias y <span style={{ color: 'var(--color-primary)' }}>Novedades</span></h1>
+            <h1 style={{ color: '#fff' }}>Noticias y <span style={{ color: '#6ee7b7' }}>Novedades</span></h1>
             <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto' }}>Análisis, tendencias y comunicados relevantes sobre nuestra labor medioambiental.</p>
           </div>
         </section>
