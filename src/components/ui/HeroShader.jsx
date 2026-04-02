@@ -1,27 +1,13 @@
-import { PulsingBorder, MeshGradient } from "@paper-design/shaders-react";
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import React, { useRef, Suspense } from "react";
+import { useInteraction } from "../../hooks/useInteraction";
+
+const LazyMeshGradient = React.lazy(() => 
+  import('@paper-design/shaders-react').then(module => ({ default: module.MeshGradient }))
+);
 
 export function ShaderBackground({ children, minHeight = '85vh' }) {
   const containerRef = useRef(null);
-  const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    const handleMouseEnter = () => setIsActive(true);
-    const handleMouseLeave = () => setIsActive(false);
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("mouseenter", handleMouseEnter);
-      container.addEventListener("mouseleave", handleMouseLeave);
-    }
-    return () => {
-      if (container) {
-        container.removeEventListener("mouseenter", handleMouseEnter);
-        container.removeEventListener("mouseleave", handleMouseLeave);
-      }
-    };
-  }, []);
+  const interacted = useInteraction();
 
   return (
     <div ref={containerRef} style={{ minHeight, width: '100%', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -43,22 +29,29 @@ export function ShaderBackground({ children, minHeight = '85vh' }) {
         </defs>
       </svg>
 
-      {/* Background Shaders */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <MeshGradient
-          style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
-          colors={["#020617", "#BD5817", "#ffffff", "#2E6B8A", "#624914"]}
-          speed={0.3}
-          backgroundColor="#020617"
-        />
-        <MeshGradient
-          style={{ width: '100%', height: '100%', position: 'absolute', inset: 0, opacity: 0.6 }}
-          colors={["#020617", "#ffffff", "#3A8BB2", "#D79410"]}
-          speed={0.2}
-          wireframe={true}
-          backgroundColor="transparent"
-        />
-      </div>
+      {/* Fallback Static Gradient */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, background: 'linear-gradient(135deg, #020617 0%, #BD5817 30%, #2E6B8A 70%, #020617 100%)' }} />
+
+      {/* Lazy Loaded WebGL Shaders (Only after interaction) */}
+      {interacted && (
+        <Suspense fallback={null}>
+          <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+            <LazyMeshGradient
+              style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
+              colors={["#020617", "#BD5817", "#ffffff", "#2E6B8A", "#624914"]}
+              speed={0.3}
+              backgroundColor="#020617"
+            />
+            <LazyMeshGradient
+              style={{ width: '100%', height: '100%', position: 'absolute', inset: 0, opacity: 0.6 }}
+              colors={["#020617", "#ffffff", "#3A8BB2", "#D79410"]}
+              speed={0.2}
+              wireframe={true}
+              backgroundColor="transparent"
+            />
+          </div>
+        </Suspense>
+      )}
 
       <div style={{ position: 'relative', zIndex: 10, width: '100%' }}>
         {children}

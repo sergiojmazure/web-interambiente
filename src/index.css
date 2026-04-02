@@ -174,3 +174,11 @@ a:hover {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* Animations */
+@keyframes spin-anim {
+  100% { transform: rotate(360deg); }
+}
+.spin-anim {
+  animation: spin-anim 25s linear infinite;
+}
