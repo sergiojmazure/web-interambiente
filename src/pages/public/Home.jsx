@@ -81,7 +81,7 @@ export default function Home() {
             <span style={{ color: '#6ee7b7', fontStyle: 'italic', fontWeight: 400 }}>para el Futuro</span>
           </h1>
           <p className="subtitle" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', maxWidth: '700px', margin: '0 auto var(--space-xl)', color: 'rgba(255, 255, 255, 0.75)', lineHeight: 1.6 }}>
-            En INTERAMBIENTE ofrecemos a nuestros clientes soluciones ambientales integrales a través de asesorías técnicas acorde sus proyectos, actividades y procesos productivos, que garanticen el cumplimiento de la Legislación Ambiental Nacional Vigente y Aplicable.
+            En INTERAMBIENTE ofrecemos a nuestros clientes soluciones ambientales integrales a través de asesorías técnicas acorde sus proyectos, actividades y procesos productivos, que garanticen el cumplimiento de la Legislación Ambiental Nacional Vigente y Aplicable en Ecuador.
           </p>
           <div style={{ display: 'flex', gap: 'var(--space-md)', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/servicios" className="btn btn-primary" style={{ border: 'none', background: '#ffffff', color: '#064e3b' }}>
