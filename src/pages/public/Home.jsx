@@ -128,6 +128,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Equipo / Quiénes Somos Section */}
+      <section className="section" style={{ backgroundColor: 'var(--color-bg-light)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', maxWidth: '800px', margin: '0 auto var(--space-xl)' }}>
+            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: 'var(--color-secondary)' }}>
+              El Equipo Detrás del <span style={{ color: 'var(--color-primary)' }}>Impacto</span>
+            </h2>
+            <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', marginTop: 'var(--space-md)' }}>
+              Liderados por profesionales apasionados por el desarrollo sostenible, combinamos experiencia técnica y visión estratégica para impulsar la transformación que tu empresa necesita.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--space-lg)', maxWidth: '900px', margin: '0 auto' }}>
+            
+            {/* Angie Recalde */}
+            <div className="glass-panel" style={{ padding: '24px', textAlign: 'center', transition: 'transform 0.3s ease', cursor: 'default' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+              <div style={{ width: '180px', height: '180px', margin: '0 auto var(--space-md)', borderRadius: '50%', overflow: 'hidden', border: '4px solid #fff', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}>
+                <img src="/imagenes/angie.jpg" alt="Angie Recalde" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+              </div>
+              <h3 style={{ fontSize: '1.8rem', color: 'var(--color-secondary)', marginBottom: '4px' }}>Angie Recalde</h3>
+              <p style={{ color: 'var(--color-primary)', fontWeight: 'bold', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-subtitle)' }}>Liderazgo Experto</p>
+              <p style={{ color: 'var(--color-text-muted)', marginTop: '16px', fontSize: '1.05rem', lineHeight: 1.6 }}>Especialista en sostenibilidad y cumplimiento legal ambiental, liderando proyectos corporativos con el más alto estándar.</p>
+            </div>
+
+            {/* Diego Procel */}
+            <div className="glass-panel" style={{ padding: '24px', textAlign: 'center', transition: 'transform 0.3s ease', cursor: 'default' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+              <div style={{ width: '180px', height: '180px', margin: '0 auto var(--space-md)', borderRadius: '50%', overflow: 'hidden', border: '4px solid #fff', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}>
+                <img src="/imagenes/diego.jpg" alt="Diego Procel" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+              </div>
+              <h3 style={{ fontSize: '1.8rem', color: 'var(--color-secondary)', marginBottom: '4px' }}>Diego Procel</h3>
+              <p style={{ color: 'var(--color-primary)', fontWeight: 'bold', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-subtitle)' }}>Liderazgo Experto</p>
+              <p style={{ color: 'var(--color-text-muted)', marginTop: '16px', fontSize: '1.05rem', lineHeight: 1.6 }}>Estratega ambiental corporativo, experto en alinear modelos de negocio con normativas de regularización locales e internacionales.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Formulario de Contacto */}
       <section id="contacto" className="section bg-gradient">
         <div className="container" style={{ maxWidth: '800px' }}>
