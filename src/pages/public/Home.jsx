@@ -9,12 +9,12 @@ export default function Home() {
   const { hash } = useLocation();
 
   useEffect(() => {
-    if (hash === '#contacto') {
-      const el = document.getElementById('contacto');
+    if (hash) {
+      const el = document.getElementById(hash.substring(1));
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
       }
-    } else if (!hash) {
+    } else {
       window.scrollTo(0, 0);
     }
   }, [hash]);
@@ -129,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* Equipo / Quiénes Somos Section */}
-      <section className="section" style={{ backgroundColor: 'var(--color-bg-light)' }}>
+      <section id="quienes-somos" className="section" style={{ backgroundColor: 'var(--color-bg-light)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', maxWidth: '800px', margin: '0 auto var(--space-xl)' }}>
             <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: 'var(--color-secondary)' }}>

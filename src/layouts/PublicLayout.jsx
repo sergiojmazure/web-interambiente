@@ -8,6 +8,9 @@ export default function PublicLayout() {
 
   useEffect(() => {
     setIsMenuOpen(false);
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
   }, [location]);
 
   return (
@@ -27,7 +30,7 @@ export default function PublicLayout() {
           paddingTop: 'var(--space-md)', 
           paddingBottom: 'var(--space-md)' 
         }}>
-          <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ display: 'flex', alignItems: 'center' }}>
               <img 
                 src="/logotipo-interambiente.webp" 
                 alt="Interambiente Logo" 
@@ -39,7 +42,8 @@ export default function PublicLayout() {
 
           {/* Desktop Nav */}
           <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-md)' }}>
-            <Link to="/" style={navLinkStyle}>Inicio</Link>
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={navLinkStyle}>Inicio</Link>
+            <Link to="/#quienes-somos" style={navLinkStyle}>Quiénes somos</Link>
             <Link to="/servicios" style={navLinkStyle}>Servicios</Link>
             <Link to="/clientes" style={navLinkStyle}>Portfolio</Link>
             <Link to="/novedades" style={navLinkStyle}>Novedades</Link>
@@ -81,7 +85,8 @@ export default function PublicLayout() {
             boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
             borderTop: '1px solid var(--color-bg-alt)'
           }}>
-            <Link to="/" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Inicio</Link>
+            <Link to="/" onClick={() => { setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} style={mobileNavLinkStyle}>Inicio</Link>
+            <Link to="/#quienes-somos" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Quiénes somos</Link>
             <Link to="/servicios" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Servicios</Link>
             <Link to="/clientes" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
             <Link to="/novedades" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Novedades</Link>
