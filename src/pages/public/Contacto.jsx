@@ -191,7 +191,7 @@ export default function Contacto() {
               <div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '4px', color: 'var(--color-secondary)' }}>Buzón Corporativo</h4>
                 <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.5, margin: 0 }}>
-                  <a href="mailto:a.recalde@interambientesa.com" style={{ color: 'inherit', textDecoration: 'none' }}>a.recalde@interambientesa.com</a>
+                  <a href="mailto:info@interambientesa.com" style={{ color: 'inherit', textDecoration: 'none' }}>info@interambientesa.com</a>
                 </p>
               </div>
             </div>
