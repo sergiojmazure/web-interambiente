@@ -28,11 +28,13 @@ export default function PublicLayout() {
           paddingBottom: 'var(--space-md)' 
         }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
-            <img 
-              src="/logotipo-interambiente.png" 
-              alt="Interambiente Logo" 
-              style={{ height: '50px', objectFit: 'contain' }} 
-            />
+              <img 
+                src="/logotipo-interambiente.webp" 
+                alt="Interambiente Logo" 
+                width="200" 
+                height="187" 
+                style={{ height: '50px', width: 'auto', objectFit: 'contain' }} 
+              />
           </Link>
 
           {/* Desktop Nav */}
@@ -97,9 +99,12 @@ export default function PublicLayout() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 'var(--space-xl)', marginBottom: 'var(--space-xl)' }}>
             <div>
               <img 
-                src="/logotipo-interambiente.png" 
+                src="/logotipo-interambiente.webp" 
                 alt="Interambiente" 
-                style={{ height: '40px', objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.8 }} 
+                width="200" 
+                height="187" 
+                loading="lazy" 
+                style={{ height: '40px', width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.8 }} 
               />
               <p style={{ color: 'var(--color-bg-alt)', marginTop: 'var(--space-sm)' }}>Acompañando a las organizaciones en su transición hacia la sostenibilidad.</p>
             </div>

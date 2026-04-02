@@ -145,7 +145,7 @@ export default function Home() {
             {/* Angie Recalde */}
             <div className="glass-panel" style={{ padding: '24px', textAlign: 'center', transition: 'transform 0.3s ease', cursor: 'default' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
               <div style={{ width: '180px', height: '180px', margin: '0 auto var(--space-md)', borderRadius: '50%', overflow: 'hidden', border: '4px solid #fff', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}>
-                <img src="/imagenes/angie.jpg" alt="Angie Recalde" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+                <img src="/imagenes/angie.webp" alt="Angie Recalde" width="180" height="180" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
               </div>
               <h3 style={{ fontSize: '1.8rem', color: 'var(--color-secondary)', marginBottom: '4px' }}>Angie Recalde</h3>
               <p style={{ color: 'var(--color-primary)', fontWeight: 'bold', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-subtitle)' }}>Liderazgo Experto</p>
@@ -155,7 +155,7 @@ export default function Home() {
             {/* Diego Procel */}
             <div className="glass-panel" style={{ padding: '24px', textAlign: 'center', transition: 'transform 0.3s ease', cursor: 'default' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
               <div style={{ width: '180px', height: '180px', margin: '0 auto var(--space-md)', borderRadius: '50%', overflow: 'hidden', border: '4px solid #fff', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}>
-                <img src="/imagenes/diego.jpg" alt="Diego Procel" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+                <img src="/imagenes/diego.webp" alt="Diego Procel" width="180" height="180" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
               </div>
               <h3 style={{ fontSize: '1.8rem', color: 'var(--color-secondary)', marginBottom: '4px' }}>Diego Procel</h3>
               <p style={{ color: 'var(--color-primary)', fontWeight: 'bold', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-subtitle)' }}>Liderazgo Experto</p>

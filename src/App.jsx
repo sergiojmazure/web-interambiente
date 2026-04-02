@@ -1,25 +1,27 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PublicLayout from './layouts/PublicLayout';
-import AdminLayout from './layouts/AdminLayout';
-
 import Home from './pages/public/Home';
-import Servicios from './pages/public/Servicios';
-import Portfolio from './pages/public/Portfolio';
-import Novedades from './pages/public/Novedades';
-import NovedadDetalle from './pages/public/NovedadDetalle';
-import Contacto from './pages/public/Contacto';
-import Privacidad from './pages/public/Privacidad';
 
-import Dashboard from './pages/admin/Dashboard';
-import AdminPortfolio from './pages/admin/AdminPortfolio';
-import AdminPosts from './pages/admin/AdminPosts';
-import AdminSellos from './pages/admin/AdminSellos';
-import Login from './pages/auth/Login';
+const AdminLayout = lazy(() => import('./layouts/AdminLayout'));
+const Servicios = lazy(() => import('./pages/public/Servicios'));
+const Portfolio = lazy(() => import('./pages/public/Portfolio'));
+const Novedades = lazy(() => import('./pages/public/Novedades'));
+const NovedadDetalle = lazy(() => import('./pages/public/NovedadDetalle'));
+const Contacto = lazy(() => import('./pages/public/Contacto'));
+const Privacidad = lazy(() => import('./pages/public/Privacidad'));
+
+const Dashboard = lazy(() => import('./pages/admin/Dashboard'));
+const AdminPortfolio = lazy(() => import('./pages/admin/AdminPortfolio'));
+const AdminPosts = lazy(() => import('./pages/admin/AdminPosts'));
+const AdminSellos = lazy(() => import('./pages/admin/AdminSellos'));
+const Login = lazy(() => import('./pages/auth/Login'));
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <Suspense fallback={<div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-bg-light)', color: 'var(--color-primary)'}}>Cargando...</div>}>
+        <Routes>
         <Route path="/" element={<PublicLayout />}>
           <Route index element={<Home />} />
           <Route path="servicios" element={<Servicios />} />
@@ -38,7 +40,8 @@ function App() {
           <Route path="novedades" element={<AdminPosts />} />
           <Route path="sellos" element={<AdminSellos />} />
         </Route>
-      </Routes>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

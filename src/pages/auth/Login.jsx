@@ -34,7 +34,7 @@ export default function Login() {
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: 'var(--color-bg-light)' }}>
       <div className="glass-panel" style={{ padding: 'var(--space-xl)', maxWidth: '400px', width: '100%' }}>
         <div style={{ textAlign: 'center', marginBottom: 'var(--space-lg)' }}>
-          <img src="/logotipo-interambiente.png" alt="Logo" style={{ height: '40px', marginBottom: 'var(--space-sm)' }} />
+          <img src="/logotipo-interambiente.webp" alt="Logo" width="200" height="187" style={{ height: '40px', width: 'auto', marginBottom: 'var(--space-sm)' }} />
           <h2 style={{ color: 'var(--color-secondary)' }}>Acceso CMS</h2>
         </div>
         

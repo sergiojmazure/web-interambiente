@@ -34,7 +34,7 @@ export default function AdminLayout() {
       {/* Sidebar */}
       <aside style={{ width: '250px', background: 'var(--color-bg)', borderRight: '1px solid #e4e4e7', display: 'flex', flexDirection: 'column' }}>
         <div style={{ padding: 'var(--space-md)', borderBottom: '1px solid #e4e4e7' }}>
-          <img src="/logotipo-interambiente.png" alt="Logo" style={{ height: '30px', objectFit: 'contain' }} />
+          <img src="/logotipo-interambiente.webp" alt="Logo" width="200" height="187" style={{ height: '30px', width: 'auto', objectFit: 'contain' }} />
           <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '4px' }}>Panel de Control</p>
         </div>
         
