@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
-import { PlusCircle, Trash2, Link as LinkIcon, Image as ImageIcon } from 'lucide-react';
+import { PlusCircle, Trash2, Link as LinkIcon, Image as ImageIcon, UploadCloud, Loader2 } from 'lucide-react';
 
 export default function AdminPortfolio() {
   const [items, setItems] = useState([]);
@@ -10,6 +10,48 @@ export default function AdminPortfolio() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+
+  // Drag & Drop Upload States
+  const [isDragging, setIsDragging] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+
+  const handleFileUpload = async (file) => {
+    if (!file) return;
+
+    // Validación de imagen simple
+    const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
+    if (!validTypes.includes(file.type)) {
+      alert('Solo se admiten formatos gráficos (.jpg, .png, .webp)');
+      return;
+    }
+
+    setIsUploading(true);
+    try {
+      // Generar nombre seguro (sin espacios ni acentos, conservando extensión)
+      const fileExt = file.name.split('.').pop();
+      const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '').replace(`.${fileExt}`, '');
+      const uniqueName = `portfolio/${Date.now()}_${safeName}.${fileExt}`;
+
+      // Subir archivo al bucket intamb_uploads
+      const { error: uploadError } = await supabase.storage
+        .from('intamb_uploads')
+        .upload(uniqueName, file);
+
+      if (uploadError) throw uploadError;
+
+      // Obtener la URL publica completa
+      const { data } = supabase.storage
+        .from('intamb_uploads')
+        .getPublicUrl(uniqueName);
+
+      setImageUrl(data.publicUrl);
+    } catch (err) {
+      console.error(err);
+      alert('Ocurrió un error al subir el archivo a los servidores.');
+    } finally {
+      setIsUploading(false);
+    }
+  };
 
   const fetchItems = async () => {
     setLoading(true);
@@ -71,14 +113,51 @@ export default function AdminPortfolio() {
               <textarea required rows="3" value={description} onChange={e => setDescription(e.target.value)} style={inputStyle} placeholder="Descripción de los hallazgos y valor..."></textarea>
             </div>
 
-            <div>
-              <label style={{ display: 'block', fontWeight: 600, marginBottom: '8px' }}><ImageIcon size={16} style={{ verticalAlign: 'middle', marginRight: '4px' }}/> URL de la Imagen de Portada</label>
-              <input type="url" required value={imageUrl} onChange={e => setImageUrl(e.target.value)} style={inputStyle} placeholder="https://ejemplo.com/imagen.jpg" />
+            {/* ZONA DRAG & DROP E IMAGEN */}
+            <div style={{ padding: '24px', borderRadius: '8px', border: isDragging ? '2px dashed var(--color-primary)' : '2px dashed #cbd5e1', background: isDragging ? '#eff6ff' : '#f8fafc', transition: 'all 0.2s', position: 'relative' }}
+              onDragOver={e => { e.preventDefault(); setIsDragging(true); }}
+              onDragLeave={() => setIsDragging(false)}
+              onDrop={e => { e.preventDefault(); setIsDragging(false); handleFileUpload(e.dataTransfer.files[0]); }}
+            >
+              <label style={{ display: 'block', fontWeight: 600, marginBottom: '16px', color: '#334155' }}>Logotipo o Imagen del Proyecto</label>
+              
+              <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexDirection: 'column' }}>
+                <div style={{ textAlign: 'center', pointerEvents: 'none' }}>
+                  {isUploading ? (
+                    <Loader2 size={36} className="lucide-spin" color="var(--color-primary)" style={{ animation: 'spin 2s linear infinite' }} />
+                  ) : (
+                    <UploadCloud size={36} color={isDragging ? 'var(--color-primary)' : '#94a3b8'} />
+                  )}
+                  <p style={{ margin: '8px 0 0 0', fontWeight: '500', color: '#475569' }}>
+                    {isUploading ? 'Subiendo imagen...' : 'Arrastra una fotografía aquí (.jpg, .png, .webp)'}
+                  </p>
+                </div>
+                
+                <input 
+                  type="file" 
+                  accept="image/png, image/jpeg, image/webp"
+                  onChange={e => handleFileUpload(e.target.files[0])}
+                  disabled={isUploading}
+                  style={{ display: 'block', fontSize: '0.8rem', outline: 'none', cursor: 'pointer' }}
+                />
+              </div>
+
+              <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid #e2e8f0' }}>
+                <p style={{ margin: '0 0 8px 0', fontSize: '0.85rem', color: '#64748b' }}>O si prefieres, puedes introducir manualmente su enlace URL exterior:</p>
+                <input type="url" required value={imageUrl} onChange={e => setImageUrl(e.target.value)} style={inputStyle} placeholder="https://..." />
+                
+                {imageUrl && (
+                  <div style={{ marginTop: '16px' }}>
+                    <p style={{ margin: '0 0 4px 0', fontSize: '0.85rem', fontWeight: 600 }}>Vista Previa:</p>
+                    <img src={imageUrl} alt="Preview" style={{ height: '80px', borderRadius: '4px', objectFit: 'contain', border: '1px solid #ccc' }} />
+                  </div>
+                )}
+              </div>
             </div>
 
             <div style={{ display: 'flex', gap: 'var(--space-md)', justifyContent: 'flex-end', marginTop: 'var(--space-sm)' }}>
               <button type="button" onClick={() => setIsAdding(false)} className="btn" style={{ background: 'transparent', border: '1px solid #ccc', color: '#666' }}>Cancelar</button>
-              <button type="submit" className="btn btn-primary">Guardar Proyecto</button>
+              <button type="submit" className="btn btn-primary" disabled={isUploading}>Guardar Proyecto</button>
             </div>
           </form>
         </div>
@@ -114,6 +193,11 @@ export default function AdminPortfolio() {
           </table>
         </div>
       )}
+
+      <style>{`
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .lucide-spin { animation: spin 1s linear infinite; }
+      `}</style>
     </div>
   );
 }

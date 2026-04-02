@@ -32,13 +32,13 @@ export default function Portfolio() {
   return (
     <div>
       <SEO 
-        title="Portfolio de Clientes y Certificaciones | Interambiente SA" 
+        title="Portafolio de Proyectos y Clientes | Interambiente SA" 
         description="Organizaciones que han confiado su arquitectura sostenible y cumplimiento ambiental a nuestro equipo de técnicos."
       />
       <ShaderBackground minHeight="auto">
         <section className="section" style={{ paddingBottom: 'var(--space-xl)', width: '100%' }}>
           <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
-            <h1 style={{ color: '#fff' }}>Nuestro <span style={{ color: '#6ee7b7' }}>Impacto</span></h1>
+            <h1 style={{ color: '#fff' }}>Nuestro <span style={{ color: '#6ee7b7' }}>Portafolio</span></h1>
             <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto' }}>Casos de éxito y portafolio de proyectos integrales de sostenibilidad.</p>
           </div>
         </section>
@@ -61,7 +61,7 @@ export default function Portfolio() {
                     <img 
                       src={project.image_url} 
                       alt={project.title} 
-                      style={{ width: '100%', height: '220px', objectFit: 'cover' }} 
+                      style={{ width: '100%', height: '220px', objectFit: 'contain', backgroundColor: '#f8fafc', padding: '16px' }} 
                     />
                   )}
                   <div style={{ padding: 'var(--space-lg)', flex: 1, display: 'flex', flexDirection: 'column' }}>

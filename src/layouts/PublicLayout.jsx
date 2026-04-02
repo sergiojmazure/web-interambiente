@@ -45,7 +45,7 @@ export default function PublicLayout() {
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={navLinkStyle}>Inicio</Link>
             <Link to="/#quienes-somos" style={navLinkStyle}>Quiénes somos</Link>
             <Link to="/servicios" style={navLinkStyle}>Servicios</Link>
-            <Link to="/clientes" style={navLinkStyle}>Portfolio</Link>
+            <Link to="/clientes" style={navLinkStyle}>Portafolio</Link>
             <Link to="/novedades" style={navLinkStyle}>Novedades</Link>
             <Link to="/contacto" className="btn btn-primary" style={{ padding: '10px 24px' }}>Contacto</Link>
           </nav>
@@ -88,7 +88,7 @@ export default function PublicLayout() {
             <Link to="/" onClick={() => { setIsMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} style={mobileNavLinkStyle}>Inicio</Link>
             <Link to="/#quienes-somos" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Quiénes somos</Link>
             <Link to="/servicios" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Servicios</Link>
-            <Link to="/clientes" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
+            <Link to="/clientes" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Portafolio</Link>
             <Link to="/novedades" style={mobileNavLinkStyle} onClick={() => setIsMenuOpen(false)}>Novedades</Link>
             <Link to="/contacto" className="btn btn-primary" style={{ textAlign: 'center', margin: 'var(--space-md)' }} onClick={() => setIsMenuOpen(false)}>Contacto</Link>
           </nav>
@@ -117,7 +117,7 @@ export default function PublicLayout() {
               <h4 style={{ color: '#fff' }}>Enlaces</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '4px', marginTop: 'var(--space-sm)' }}>
                 <li><Link to="/servicios" style={footerLinkStyle}>Servicios</Link></li>
-                <li><Link to="/clientes" style={footerLinkStyle}>Portfolio</Link></li>
+                <li><Link to="/clientes" style={footerLinkStyle}>Portafolio</Link></li>
                 <li><Link to="/novedades" style={footerLinkStyle}>Novedades</Link></li>
               </ul>
             </div>
