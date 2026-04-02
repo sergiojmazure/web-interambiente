@@ -73,7 +73,7 @@ export default function Home() {
               fontSize: '0.85rem'
             }}
           >
-            ✨ Nueva Solución de Consultoría ESG
+            ✨ Asesoría y Seguimiento Ambiental
           </div>
 
           <h1 style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', color: '#ffffff', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '1.5rem' }}>
@@ -81,7 +81,7 @@ export default function Home() {
             <span style={{ color: '#6ee7b7', fontStyle: 'italic', fontWeight: 400 }}>para el Futuro</span>
           </h1>
           <p className="subtitle" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', maxWidth: '700px', margin: '0 auto var(--space-xl)', color: 'rgba(255, 255, 255, 0.75)', lineHeight: 1.6 }}>
-            Interambiente acompañamos a las organizaciones en su transición hacia la sostenibilidad. Repensamos modelos de negocio de forma innovadora, interactiva y rentable.
+            En INTERAMBIENTE ofrecemos a nuestros clientes soluciones ambientales integrales a través de asesorías técnicas acorde sus proyectos, actividades y procesos productivos, que garanticen el cumplimiento de la Legislación Ambiental Nacional Vigente y Aplicable.
           </p>
           <div style={{ display: 'flex', gap: 'var(--space-md)', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/servicios" className="btn btn-primary" style={{ border: 'none', background: '#ffffff', color: '#064e3b' }}>
@@ -148,7 +148,7 @@ export default function Home() {
                 <img src="/imagenes/angie.webp" alt="Angie Recalde" width="180" height="180" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
               </div>
               <h3 style={{ fontSize: '1.8rem', color: 'var(--color-secondary)', marginBottom: '4px' }}>Angie Recalde</h3>
-              <p style={{ color: 'var(--color-primary)', fontWeight: 'bold', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-subtitle)' }}>Liderazgo Experto</p>
+              <p style={{ color: 'var(--color-primary)', fontWeight: 'bold', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-subtitle)' }}>Gerente de Proyectos</p>
               <p style={{ color: 'var(--color-text-muted)', marginTop: '16px', fontSize: '1.05rem', lineHeight: 1.6 }}>Especialista en sostenibilidad y cumplimiento legal ambiental, liderando proyectos corporativos con el más alto estándar.</p>
             </div>
 
@@ -158,7 +158,7 @@ export default function Home() {
                 <img src="/imagenes/diego.webp" alt="Diego Procel" width="180" height="180" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
               </div>
               <h3 style={{ fontSize: '1.8rem', color: 'var(--color-secondary)', marginBottom: '4px' }}>Diego Procel</h3>
-              <p style={{ color: 'var(--color-primary)', fontWeight: 'bold', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-subtitle)' }}>Liderazgo Experto</p>
+              <p style={{ color: 'var(--color-primary)', fontWeight: 'bold', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-subtitle)' }}>Gerente General</p>
               <p style={{ color: 'var(--color-text-muted)', marginTop: '16px', fontSize: '1.05rem', lineHeight: 1.6 }}>Estratega ambiental corporativo, experto en alinear modelos de negocio con normativas de regularización locales e internacionales.</p>
             </div>
 
@@ -231,7 +231,7 @@ export default function Home() {
                     rows="5"
                     value={formData.mensaje}
                     onChange={e => setFormData({...formData, mensaje: e.target.value})}
-                    placeholder="Quisiera información sobre consultoría ESG..."
+                    placeholder="Quisiera información sobre asesoría y gestión ambiental..."
                     style={{...inputStyle, resize: 'vertical' }} 
                   ></textarea>
                 </div>
