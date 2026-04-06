@@ -67,10 +67,8 @@ export function SelloCertificado({ isWidget = false, clientName = '' }) {
             <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
           </defs>
           <text style={{ fontSize: '9px', fill: 'rgba(255,255,255,0.8)', fontFamily: 'var(--font-heading), sans-serif', letterSpacing: '1px' }}>
-            <textPath href="#circlePath" startOffset={clientName ? "0%" : "50%"} textAnchor={clientName ? "start" : "middle"} textLength={clientName ? "280" : undefined}>
-               {clientName 
-                 ? `\u00A0Interambiente Asesores • Certificado Sostenible • ${clientName} •\u00A0` 
-                 : `Interambiente Asesores • Certificado Sostenible`}
+            <textPath href="#circlePath" startOffset="0%" textLength={clientName ? "280" : "210"}>
+               {"\u00A0"}Interambiente Asesores • Certificado Sostenible{clientName ? ` • ${clientName}` : ""} •{"\u00A0"}
             </textPath>
           </text>
           </svg>
