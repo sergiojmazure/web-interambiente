@@ -5,18 +5,19 @@ import { ArrowLeft, Calendar } from 'lucide-react';
 import SEO from '../../components/SEO';
 
 export default function NovedadDetalle() {
-  const { id } = useParams();
+  const { id, slug } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchPost() {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('intamb_posts')
-        .select('*')
-        .eq('id', id)
-        .single();
+      
+      let query = supabase.from('intamb_posts').select('*');
+      if (slug) query = query.eq('slug', slug);
+      else query = query.eq('id', id);
+      
+      const { data, error } = await query.single();
         
       if (!error && data) {
         setPost(data);

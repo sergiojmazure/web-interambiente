@@ -45,6 +45,16 @@ export default function AdminPosts() {
     setIsFormOpen(true);
   };
 
+  const generateSlug = (text) => {
+    return text.toLowerCase()
+      .normalize('NFD') // remove accents
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-") + '-' + Math.random().toString(36).substring(2,6);
+  };
+
   const handleSave = async (e) => {
     e.preventDefault();
     if (editingId) {
@@ -57,8 +67,9 @@ export default function AdminPosts() {
       else alert("Error al editar: " + error.message);
     } else {
       // MODO CREACIÓN
+      const generatedSlug = generateSlug(title);
       const { error } = await supabase.from('intamb_posts').insert({
-        title, content, image_url: imageUrl
+        title, content, image_url: imageUrl, slug: generatedSlug
       });
       
       if (!error) cerrarFormulario();

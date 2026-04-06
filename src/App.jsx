@@ -29,6 +29,7 @@ function App() {
           <Route path="clientes" element={<Portfolio />} />
           <Route path="novedades" element={<Novedades />} />
           <Route path="novedades/:id" element={<NovedadDetalle />} />
+          <Route path="novedades/:date/:slug" element={<NovedadDetalle />} />
           <Route path="contacto" element={<Contacto />} />
           <Route path="privacidad" element={<Privacidad />} />
         </Route>

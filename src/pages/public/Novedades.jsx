@@ -93,8 +93,16 @@ export default function Novedades() {
                 gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', 
                 gap: 'var(--space-xl)' 
               }}>
-                {posts.map((post) => (
-                  <Link to={`/novedades/${post.id}`} key={post.id} className="news-card" style={{ textDecoration: 'none' }}>
+                {posts.map((post) => {
+                  const dateStr = new Date(post.created_at);
+                  const yy = dateStr.getFullYear().toString().slice(-2);
+                  const mm = (dateStr.getMonth() + 1).toString().padStart(2, '0');
+                  const dd = dateStr.getDate().toString().padStart(2, '0');
+                  const dateUrl = `${yy}${mm}${dd}`;
+                  const postUrl = post.slug ? `/novedades/${dateUrl}/${post.slug}` : `/novedades/${post.id}`;
+                  
+                  return (
+                  <Link to={postUrl} key={post.id} className="news-card" style={{ textDecoration: 'none' }}>
                     <div className="glass-panel" style={{ 
                       overflow: 'hidden', 
                       display: 'flex', 
@@ -130,7 +138,8 @@ export default function Novedades() {
                       </div>
                     </div>
                   </Link>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Botón Cargar Más */}
