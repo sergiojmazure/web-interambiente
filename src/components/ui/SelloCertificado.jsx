@@ -57,7 +57,7 @@ export function SelloCertificado({ isWidget = false, clientName = '' }) {
         )}
 
         {/* Rotating Text Around the Pulsing Border */}
-        <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', transform: "scale(1.8)" }}>
+        <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', transform: clientName ? "scale(1.8)" : "scale(1.5)" }}>
           <svg
             className="spin-anim"
             style={{ width: '100%', height: '100%', transformOrigin: 'center' }}
@@ -67,7 +67,7 @@ export function SelloCertificado({ isWidget = false, clientName = '' }) {
             <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
           </defs>
           <text style={{ fontSize: '9px', fill: 'rgba(255,255,255,0.8)', fontFamily: 'var(--font-heading), sans-serif', letterSpacing: '1px' }}>
-            <textPath href="#circlePath" startOffset="0%" textLength={clientName ? "280" : "210"}>
+            <textPath href="#circlePath" startOffset="0%" textLength={clientName ? "280" : "218"}>
                {"\u00A0"}Interambiente Asesores • Certificado Sostenible{clientName ? ` • ${clientName}` : ""} •{"\u00A0"}
             </textPath>
           </text>
