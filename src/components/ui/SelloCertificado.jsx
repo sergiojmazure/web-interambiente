@@ -9,7 +9,7 @@ export function SelloCertificado({ isWidget = false, clientName = '' }) {
   const interacted = useInteraction();
   return (
     <a 
-      href="https://web-interambiente.vercel.app" 
+      href="https://interambientesa.com" 
       target="_blank" 
       rel="noopener noreferrer"
       style={isWidget ? { position: 'relative', display: 'inline-block', width: '80px', height: '80px', margin: 'auto', cursor: 'pointer', zIndex: 30, textDecoration: 'none', WebkitTapHighlightColor: 'transparent' } : { position: 'absolute', bottom: '2rem', right: '3rem', zIndex: 50, cursor: 'pointer', textDecoration: 'none', WebkitTapHighlightColor: 'transparent' }}
