@@ -15,6 +15,7 @@ const Dashboard = lazy(() => import('./pages/admin/Dashboard'));
 const AdminPortfolio = lazy(() => import('./pages/admin/AdminPortfolio'));
 const AdminPosts = lazy(() => import('./pages/admin/AdminPosts'));
 const AdminSellos = lazy(() => import('./pages/admin/AdminSellos'));
+const AdminAutomatizacion = lazy(() => import('./pages/admin/AdminAutomatizacion'));
 const Login = lazy(() => import('./pages/auth/Login'));
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path="portfolio" element={<AdminPortfolio />} />
           <Route path="novedades" element={<AdminPosts />} />
           <Route path="sellos" element={<AdminSellos />} />
+          <Route path="automatizacion" element={<AdminAutomatizacion />} />
         </Route>
         </Routes>
       </Suspense>

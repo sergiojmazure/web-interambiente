@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Outlet, Navigate, Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { LayoutDashboard, Briefcase, FileText, LogOut, Home, ShieldCheck } from 'lucide-react';
+import { LayoutDashboard, Briefcase, FileText, LogOut, Home, ShieldCheck, Bot } from 'lucide-react';
 
 export default function AdminLayout() {
   const [session, setSession] = useState(null);
@@ -50,6 +50,9 @@ export default function AdminLayout() {
           </Link>
           <Link to="/admin/sellos" className="admin-link">
             <ShieldCheck size={20} /> Supabase Sellos
+          </Link>
+          <Link to="/admin/automatizacion" className="admin-link">
+            <Bot size={20} /> Automatización
           </Link>
         </nav>
 
