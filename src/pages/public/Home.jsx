@@ -1,9 +1,30 @@
-import { ArrowRight, BarChart2, Leaf, ShieldCheck, Globe, Send, User, Mail, MessageSquare } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ClipboardCheck, ShieldCheck, FileText, Recycle, Send, User, Mail, MessageSquare, TrendingUp, Leaf, Scale, Globe2 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { ShaderBackground } from '../../components/ui/HeroShader';
-import { SelloCertificado } from '../../components/ui/SelloCertificado';
+import PageHero from '../../components/ui/PageHero';
+import Reveal from '../../components/ui/Reveal';
 import SEO from '../../components/SEO';
+
+const CLIENTS = ['Automotores y Anexos', 'Corporación Maresa', 'Hanaska'];
+
+const STATS = [
+  { icon: TrendingUp, value: '90%', text: 'del S&P 500 ya reporta datos ESG por transparencia.' },
+  { icon: Leaf, value: '66%', text: 'de las empresas obtiene ingresos directos de iniciativas sostenibles.' },
+  { icon: ShieldCheck, value: '50%+', text: 'reduce costos y mejora su resiliencia y posición.' },
+  { icon: Globe2, value: '75%+', text: 'de ejecutivos reporta progreso claro en metas de sostenibilidad.' },
+];
+
+const SERVICES = [
+  { icon: ClipboardCheck, title: 'Asesoría y seguimiento ambiental', text: 'Acompañamiento técnico en cada fase del plan de manejo ambiental.' },
+  { icon: ShieldCheck, title: 'Regularización y fiscalización', text: 'Permisos ante la Autoridad Ambiental y evaluación de cumplimiento legal.' },
+  { icon: FileText, title: 'Estudios, planes y procedimientos', text: 'Estudios de impacto, auditorías, registros e informes de cumplimiento.' },
+  { icon: Recycle, title: 'Gestión de residuos sólidos', text: 'Residuos comunes, orgánicos y reciclables con gestores autorizados.' },
+];
+
+const TEAM = [
+  { img: '/imagenes/diego.webp', name: 'Diego Procel', role: 'Gerente General', bio: 'Estratega ambiental corporativo, experto en alinear modelos de negocio con la normativa de regularización local e internacional.' },
+  { img: '/imagenes/angie.webp', name: 'Angie Recalde', role: 'Gerente de Proyectos', bio: 'Especialista en sostenibilidad y cumplimiento legal ambiental, liderando proyectos corporativos con el más alto estándar.' },
+];
 
 export default function Home() {
   const { hash } = useLocation();
@@ -11,9 +32,7 @@ export default function Home() {
   useEffect(() => {
     if (hash) {
       const el = document.getElementById(hash.substring(1));
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
       window.scrollTo(0, 0);
     }
@@ -26,20 +45,17 @@ export default function Home() {
     e.preventDefault();
     setStatus('loading');
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-            access_key: "7fd3c128-d3a1-41e3-a603-76ca148ef9d1",
-            subject: "Nuevo Lead desde la Landing Page - Interambiente",
-            from_name: "Web Interambiente",
-            Nombre: formData.nombre,
-            Email: formData.email,
-            Mensaje: formData.mensaje
-        })
+          access_key: '7fd3c128-d3a1-41e3-a603-76ca148ef9d1',
+          subject: 'Nuevo Lead desde la Landing Page - Interambiente',
+          from_name: 'Web Interambiente',
+          Nombre: formData.nombre,
+          Email: formData.email,
+          Mensaje: formData.mensaje,
+        }),
       });
       if (response.ok) {
         setStatus('success');
@@ -47,7 +63,7 @@ export default function Home() {
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
   };
@@ -55,238 +71,231 @@ export default function Home() {
   return (
     <div>
       <SEO />
-      {/* Hero Section */}
-      <ShaderBackground>
-        <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-          
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              padding: '6px 16px',
-              borderRadius: '999px',
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(8px)',
-              marginBottom: '2rem',
-              color: 'rgba(255, 255, 255, 0.9)',
-              fontSize: '0.85rem'
-            }}
-          >
-            ✨ Asesoría y Seguimiento Ambiental
-          </div>
 
-          <h1 style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', color: '#ffffff', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '1.5rem' }}>
-            Estrategia Sostenible <br />
-            <span style={{ color: '#6ee7b7', fontStyle: 'italic', fontWeight: 400 }}>para el Futuro</span>
-          </h1>
-          <p className="subtitle" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', maxWidth: '700px', margin: '0 auto var(--space-xl)', color: 'rgba(255, 255, 255, 0.75)', lineHeight: 1.6 }}>
-            En INTERAMBIENTE ofrecemos a nuestros clientes soluciones ambientales integrales a través de asesorías técnicas acorde sus proyectos, actividades y procesos productivos, que garanticen el cumplimiento de la Legislación Ambiental Nacional Vigente y Aplicable en Ecuador.
-          </p>
-          <div style={{ display: 'flex', gap: 'var(--space-md)', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/servicios" className="btn btn-primary" style={{ border: 'none', background: '#ffffff', color: '#064e3b' }}>
-              Nuestros Servicios <ArrowRight size={20} style={{ marginLeft: '8px' }} />
+      {/* ---------- Héroe ---------- */}
+      <PageHero
+        variant="home"
+        align="left"
+        priority
+        sello
+        imageId="1469474968028-56623f02e42e"
+        imageAlt="Cordillera andina iluminada al amanecer"
+        focal="center"
+        eyebrow="Consultoría ambiental · Ecuador"
+        title={
+          <>
+            Estrategia ambiental,<br />operación{' '}
+            <em style={{ fontStyle: 'italic', color: '#EBA85E', fontWeight: 500 }}>sostenible</em>.
+          </>
+        }
+        subtitle="Asesoría técnica y regularización para que tu empresa cumpla la normativa ambiental del Ecuador y genere valor real."
+        actions={
+          <>
+            <Link to="/servicios" className="btn btn-primary">
+              Ver servicios <ArrowRight size={18} />
             </Link>
-            <Link to="/contacto" className="btn btn-secondary" style={{ color: '#fff', border: '1px solid rgba(255,255,255,0.3)', background: 'transparent' }}>
-              Agendar Consulta
+            <Link to="/contacto" className="btn btn-secondary" style={{ color: '#FCFAF5', borderColor: 'rgba(252,250,245,0.45)' }}>
+              Hablar con un experto
             </Link>
-          </div>
-        </div>
-        <SelloCertificado />
-      </ShaderBackground>
+          </>
+        }
+      />
 
-      {/* Statistics Section from User Images */}
-      <section className="section" style={{ backgroundColor: 'var(--color-bg)' }}>
+      {/* ---------- Confianza / clientes ---------- */}
+      <section className="section-tight bg-cream">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', maxWidth: '900px', margin: '0 auto var(--space-xl)' }}>
-            <h2 style={{ color: 'var(--color-primary)', fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Esto ya no es reputación... esto es negocio.</h2>
-            <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', marginTop: 'var(--space-md)' }}>El costo de no actuar frente a la pérdida de naturaleza puede alcanzar entre 10 y 25 trillones de dólares. Así es como la sostenibilidad genera valor hoy:</p>
-          </div>
-          
-          <div className="stats-grid">
-            <StatCard 
-              icon={<BarChart2 size={36} color="var(--color-primary)" />}
-              percentage="90%"
-              text="de empresas del S&P 500 ya reportan datos ESG por transparencia."
-            />
-            <StatCard 
-              icon={<Leaf size={36} color="var(--color-primary)" />}
-              percentage="66%"
-              text="de las empresas reportan ingresos directos de iniciativas sostenibles."
-            />
-            <StatCard 
-              icon={<ShieldCheck size={36} color="var(--color-primary)" />}
-              percentage="50%+"
-              text="están reduciendo costos, mejorando su resiliencia y posición."
-            />
-            <StatCard 
-              icon={<Globe size={36} color="var(--color-primary)" />}
-              percentage="75%+"
-              text="de ejecutivos reportan un claro progreso en metas de sostenibilidad."
-            />
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 'var(--space-lg)' }}>
+            <p style={{ margin: 0, fontFamily: 'var(--font-subtitle)', fontWeight: 600, fontSize: '0.92rem', letterSpacing: '0.04em', color: 'var(--color-text-muted)', maxWidth: '220px' }}>
+              Organizaciones que confían en nuestro equipo
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '14px' }}>
+              {CLIENTS.map((c) => (
+                <div key={c} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '10px 18px', background: 'var(--color-bg)', border: '1px solid var(--color-line)', borderRadius: 'var(--radius-full)' }}>
+                  <span style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--color-primary)', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '0.95rem' }}>
+                    {c.replace(/^Corporación /, '').charAt(0)}
+                  </span>
+                  <span style={{ fontFamily: 'var(--font-subtitle)', fontWeight: 600, fontSize: '0.95rem', color: 'var(--color-secondary)' }}>{c}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Equipo / Quiénes Somos Section */}
-      <section id="quienes-somos" className="section" style={{ backgroundColor: 'var(--color-bg-light)' }}>
+      {/* ---------- Valor / estadísticas ---------- */}
+      <section className="section">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 'var(--space-xl)', maxWidth: '800px', margin: '0 auto var(--space-xl)' }}>
-            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: 'var(--color-secondary)' }}>
-              El Equipo Detrás del <span style={{ color: 'var(--color-primary)' }}>Impacto</span>
+          <Reveal style={{ maxWidth: '780px', marginBottom: 'var(--space-xl)' }}>
+            <span className="eyebrow">El caso de negocio</span>
+            <h2 style={{ fontSize: 'clamp(2.1rem, 4.5vw, 3.4rem)' }}>
+              Esto ya no es reputación. <span style={{ color: 'var(--color-primary)' }}>Es negocio.</span>
             </h2>
-            <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', marginTop: 'var(--space-md)' }}>
-              Liderados por profesionales apasionados por el desarrollo sostenible, combinamos experiencia técnica y visión estratégica para impulsar la transformación que tu empresa necesita.
+            <p className="lead" style={{ marginTop: 'var(--space-md)' }}>
+              El costo de no actuar frente a la pérdida de naturaleza puede alcanzar entre 10 y 25 billones de dólares. Así genera valor la sostenibilidad hoy:
             </p>
-          </div>
+          </Reveal>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--space-lg)', maxWidth: '900px', margin: '0 auto' }}>
-            
-            {/* Angie Recalde */}
-            <div className="glass-panel" style={{ padding: '24px', textAlign: 'center', transition: 'transform 0.3s ease', cursor: 'default' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-              <div style={{ width: '180px', height: '180px', margin: '0 auto var(--space-md)', borderRadius: '50%', overflow: 'hidden', border: '4px solid #fff', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}>
-                <img src="/imagenes/angie.webp" alt="Angie Recalde" width="180" height="180" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
-              </div>
-              <h3 style={{ fontSize: '1.8rem', color: 'var(--color-secondary)', marginBottom: '4px' }}>Angie Recalde</h3>
-              <p style={{ color: 'var(--color-primary)', fontWeight: 'bold', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-subtitle)' }}>Gerente de Proyectos</p>
-              <p style={{ color: 'var(--color-text-muted)', marginTop: '16px', fontSize: '1.05rem', lineHeight: 1.6 }}>Especialista en sostenibilidad y cumplimiento legal ambiental, liderando proyectos corporativos con el más alto estándar.</p>
-            </div>
-
-            {/* Diego Procel */}
-            <div className="glass-panel" style={{ padding: '24px', textAlign: 'center', transition: 'transform 0.3s ease', cursor: 'default' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-              <div style={{ width: '180px', height: '180px', margin: '0 auto var(--space-md)', borderRadius: '50%', overflow: 'hidden', border: '4px solid #fff', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}>
-                <img src="/imagenes/diego.webp" alt="Diego Procel" width="180" height="180" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
-              </div>
-              <h3 style={{ fontSize: '1.8rem', color: 'var(--color-secondary)', marginBottom: '4px' }}>Diego Procel</h3>
-              <p style={{ color: 'var(--color-primary)', fontWeight: 'bold', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-subtitle)' }}>Gerente General</p>
-              <p style={{ color: 'var(--color-text-muted)', marginTop: '16px', fontSize: '1.05rem', lineHeight: 1.6 }}>Estratega ambiental corporativo, experto en alinear modelos de negocio con normativas de regularización locales e internacionales.</p>
-            </div>
-
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', borderTop: '1px solid var(--color-line)' }}>
+            {STATS.map((s, i) => (
+              <Reveal key={i} delay={i * 90} style={{ padding: 'var(--space-lg) var(--space-lg) var(--space-lg) 0', borderBottom: '1px solid var(--color-line)' }}>
+                <s.icon size={26} color="var(--color-forest)" strokeWidth={1.75} />
+                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(2.6rem, 5vw, 3.6rem)', lineHeight: 1, color: 'var(--color-accent)', marginTop: '14px', letterSpacing: '-0.03em' }}>
+                  {s.value}
+                </div>
+                <p style={{ marginTop: '10px', color: 'var(--color-text)', fontWeight: 500, fontSize: '1rem', maxWidth: '24ch' }}>{s.text}</p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Formulario de Contacto */}
-      <section id="contacto" className="section bg-gradient">
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <div style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>
-            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: 'var(--color-secondary)' }}>Impulsemos tu Creación de Valor</h2>
-            <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', marginTop: 'var(--space-sm)' }}>
-              Déjanos un mensaje. Combinamos consultoría corporativa, educación y emprendedurismo para generar impacto real, medible y sostenible en tu organización.
-            </p>
-          </div>
+      {/* ---------- Servicios (preview) ---------- */}
+      <section className="section bg-light">
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--space-2xl)', alignItems: 'start' }}>
+            <Reveal>
+              <span className="eyebrow">Qué hacemos</span>
+              <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Soluciones ambientales integrales</h2>
+              <p className="lead" style={{ marginTop: 'var(--space-md)', marginBottom: 'var(--space-lg)' }}>
+                Cubrimos todo el ciclo: del diagnóstico y la regularización al seguimiento, la fiscalización y la gestión de residuos.
+              </p>
+              <Link to="/servicios" className="btn btn-outline">
+                Ver todos los servicios <ArrowRight size={18} />
+              </Link>
+              <div style={{ marginTop: 'var(--space-lg)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', aspectRatio: '16 / 10', boxShadow: 'var(--shadow-md)' }}>
+                <img
+                  src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?w=900&q=80&auto=format&fit=crop"
+                  alt="Río de aguas limpias entre rocas"
+                  loading="lazy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
+            </Reveal>
 
-          <div className="glass-panel" style={{ padding: 'var(--space-xl)' }}>
+            <Reveal delay={120} style={{ display: 'flex', flexDirection: 'column' }}>
+              {SERVICES.map((s, i) => (
+                <Link
+                  key={i}
+                  to="/servicios"
+                  className="service-row"
+                  style={{ display: 'flex', gap: '18px', alignItems: 'flex-start', padding: 'var(--space-lg) 0', borderBottom: '1px solid var(--color-line)', textDecoration: 'none' }}
+                >
+                  <span style={{ flexShrink: 0, width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'var(--color-bg)', border: '1px solid var(--color-line)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-primary)' }}>
+                    <s.icon size={22} strokeWidth={1.75} />
+                  </span>
+                  <span style={{ flex: 1 }}>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
+                      <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.2rem', color: 'var(--color-secondary)', letterSpacing: '-0.01em' }}>{s.title}</span>
+                      <ArrowUpRight size={18} className="service-arrow" style={{ color: 'var(--color-text-muted)', flexShrink: 0 }} />
+                    </span>
+                    <span style={{ display: 'block', color: 'var(--color-text-muted)', marginTop: '4px', fontSize: '0.98rem' }}>{s.text}</span>
+                  </span>
+                </Link>
+              ))}
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Quiénes somos / equipo ---------- */}
+      <section id="quienes-somos" className="section">
+        <div className="container">
+          <Reveal style={{ maxWidth: '720px', marginBottom: 'var(--space-xl)' }}>
+            <span className="eyebrow">Quiénes somos</span>
+            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}>
+              El equipo detrás del <span style={{ color: 'var(--color-primary)' }}>impacto</span>
+            </h2>
+            <p className="lead" style={{ marginTop: 'var(--space-md)' }}>
+              Profesionales apasionados por el desarrollo sostenible. Combinamos experiencia técnica y visión estratégica para impulsar la transformación que tu empresa necesita.
+            </p>
+          </Reveal>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--space-lg)' }}>
+            {TEAM.map((m, i) => (
+              <Reveal key={m.name} delay={i * 120} className="card card-hover" style={{ display: 'flex', gap: 'var(--space-lg)', alignItems: 'center' }}>
+                <div style={{ flexShrink: 0, width: '116px', height: '116px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--color-line)' }}>
+                  <img src={m.img} alt={m.name} width="116" height="116" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '1.45rem', marginBottom: '2px' }}>{m.name}</h3>
+                  <p style={{ color: 'var(--color-primary)', fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'var(--font-subtitle)', marginBottom: '10px' }}>{m.role}</p>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.98rem', lineHeight: 1.6 }}>{m.bio}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Contacto ---------- */}
+      <section id="contacto" className="section bg-gradient">
+        <div className="container container-narrow">
+          <Reveal style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>
+            <span className="eyebrow" style={{ justifyContent: 'center' }}>Hablemos</span>
+            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}>Impulsemos tu creación de valor</h2>
+            <p className="lead" style={{ marginTop: 'var(--space-sm)', marginLeft: 'auto', marginRight: 'auto' }}>
+              Déjanos un mensaje. Generamos impacto real, medible y sostenible en tu organización.
+            </p>
+          </Reveal>
+
+          <Reveal className="card" style={{ padding: 'clamp(1.5rem, 4vw, var(--space-xl))' }}>
             {status === 'success' ? (
-              <div style={{ background: 'rgba(22, 163, 74, 0.1)', color: '#166534', padding: '24px', borderRadius: '12px', textAlign: 'center', border: '1px solid rgba(22, 163, 74, 0.2)' }}>
-                <h3 style={{ margin: '0 0 8px 0' }}>¡Mensaje Enviado!</h3>
-                <p style={{ margin: 0 }}>Nuestros ingenieros se contactarán contigo muy pronto.</p>
-                <button className="btn btn-outline" style={{ marginTop: '16px', background: 'transparent', borderColor: '#166534', color: '#166534' }} onClick={() => setStatus('idle')}>Enviar otro mensaje</button>
+              <div style={{ background: 'rgba(62, 90, 58, 0.08)', color: 'var(--color-forest)', padding: '28px', borderRadius: 'var(--radius-md)', textAlign: 'center', border: '1px solid rgba(62, 90, 58, 0.2)' }}>
+                <h3 style={{ margin: '0 0 8px 0', color: 'var(--color-forest)' }}>¡Mensaje enviado!</h3>
+                <p style={{ margin: 0, color: 'var(--color-text)' }}>Nuestro equipo se pondrá en contacto contigo muy pronto.</p>
+                <button className="btn btn-outline" style={{ marginTop: '18px' }} onClick={() => setStatus('idle')}>Enviar otro mensaje</button>
               </div>
             ) : (
               <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-lg)' }}>
-                
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'var(--space-md)' }}>
-                  {/* Nombre */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <label htmlFor="nombre" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <User size={18} color="var(--color-primary)" /> Nombre Completo
-                    </label>
-                    <input 
-                      type="text" 
-                      id="nombre" 
-                      required 
-                      value={formData.nombre}
-                      onChange={e => setFormData({...formData, nombre: e.target.value})}
-                      placeholder="Ej. María Pérez"
-                      style={inputStyle} 
-                    />
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 'var(--space-md)' }}>
+                  <div style={fieldStyle}>
+                    <label htmlFor="nombre" style={labelStyle}><User size={16} color="var(--color-primary)" /> Nombre completo</label>
+                    <input type="text" id="nombre" required value={formData.nombre} onChange={(e) => setFormData({ ...formData, nombre: e.target.value })} placeholder="Ej. María Pérez" style={inputStyle} />
                   </div>
-
-                  {/* Email */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <label htmlFor="email" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <Mail size={18} color="var(--color-primary)" /> Correo Electrónico
-                    </label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      required 
-                      value={formData.email}
-                      onChange={e => setFormData({...formData, email: e.target.value})}
-                      placeholder="maria@empresa.com"
-                      style={inputStyle} 
-                    />
+                  <div style={fieldStyle}>
+                    <label htmlFor="email" style={labelStyle}><Mail size={16} color="var(--color-primary)" /> Correo electrónico</label>
+                    <input type="email" id="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="maria@empresa.com" style={inputStyle} />
                   </div>
                 </div>
-
-                {/* Mensaje */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <label htmlFor="mensaje" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <MessageSquare size={18} color="var(--color-primary)" /> ¿En qué podemos ayudarte?
-                  </label>
-                  <textarea 
-                    id="mensaje" 
-                    required 
-                    rows="5"
-                    value={formData.mensaje}
-                    onChange={e => setFormData({...formData, mensaje: e.target.value})}
-                    placeholder="Quisiera información sobre asesoría y gestión ambiental..."
-                    style={{...inputStyle, resize: 'vertical' }} 
-                  ></textarea>
+                <div style={fieldStyle}>
+                  <label htmlFor="mensaje" style={labelStyle}><MessageSquare size={16} color="var(--color-primary)" /> ¿En qué podemos ayudarte?</label>
+                  <textarea id="mensaje" required rows="5" value={formData.mensaje} onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })} placeholder="Quisiera información sobre asesoría y gestión ambiental..." style={{ ...inputStyle, resize: 'vertical' }} />
                 </div>
-
                 {status === 'error' && (
-                  <p style={{ color: '#ef4444', fontSize: '0.9rem', margin: 0, textAlign: 'right' }}>Ocurrió un error al enviar tu mensaje. Intenta nuevamente.</p>
+                  <p style={{ color: '#C0392B', fontSize: '0.92rem', margin: 0 }}>Ocurrió un error al enviar tu mensaje. Intenta nuevamente.</p>
                 )}
-
-                <div style={{ textAlign: 'right', marginTop: 'var(--space-md)' }}>
-                  <button type="submit" disabled={status === 'loading'} className="btn btn-primary" style={{ minWidth: '200px', fontSize: '1.2rem', opacity: status === 'loading' ? 0.7 : 1 }}>
-                    {status === 'loading' ? 'Enviando...' : (
-                      <><Send size={20} style={{ marginRight: '8px' }} /> Enviar Mensaje</>
-                    )}
+                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                  <button type="submit" disabled={status === 'loading'} className="btn btn-primary" style={{ minWidth: '210px', opacity: status === 'loading' ? 0.7 : 1 }}>
+                    {status === 'loading' ? 'Enviando...' : (<>Enviar mensaje <Send size={18} /></>)}
                   </button>
                 </div>
-
               </form>
             )}
-          </div>
+          </Reveal>
         </div>
       </section>
+
+      <style>{`
+        .service-row { transition: padding-left 280ms var(--ease-out); }
+        .service-row:hover { padding-left: 10px; }
+        .service-row:hover .service-arrow { color: var(--color-primary); transform: translate(2px, -2px); transition: transform 220ms, color 220ms; }
+        .service-row .service-arrow { transition: transform 220ms, color 220ms; }
+        input:focus, textarea:focus { border-color: var(--color-primary) !important; box-shadow: 0 0 0 3px rgba(168, 80, 30, 0.12) !important; }
+      `}</style>
     </div>
   );
 }
 
-function StatCard({ icon, percentage, text }) {
-  return (
-    <div className="glass-panel" style={{ 
-      padding: 'var(--space-xl) var(--space-lg)', 
-      textAlign: 'center', 
-      display: 'flex', 
-      flexDirection: 'column', 
-      alignItems: 'center',
-      transition: 'transform var(--transition-base)',
-      cursor: 'default'
-    }}
-    onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'}
-    onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}
-    >
-      <div style={{ marginBottom: 'var(--space-md)', background: 'var(--color-bg-alt)', padding: '16px', borderRadius: '50%' }}>
-        {icon}
-      </div>
-      <h3 style={{ fontSize: '3.5rem', color: 'var(--color-accent)', margin: 0, lineHeight: 1 }}>{percentage}</h3>
-      <p style={{ color: 'var(--color-text)', fontWeight: '600', marginTop: 'var(--space-sm)', fontSize: '1.1rem' }}>{text}</p>
-    </div>
-  );
-}
-
+const fieldStyle = { display: 'flex', flexDirection: 'column', gap: '8px' };
+const labelStyle = { fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.92rem', color: 'var(--color-secondary)' };
 const inputStyle = {
-  padding: '12px 16px',
-  borderRadius: 'var(--radius-md)',
-  border: '1px solid #ccc',
+  padding: '13px 16px',
+  borderRadius: 'var(--radius-sm)',
+  border: '1.5px solid var(--color-line)',
   fontSize: '1rem',
   fontFamily: 'var(--font-body)',
-  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+  backgroundColor: 'var(--color-bg)',
+  color: 'var(--color-text)',
   outline: 'none',
-  transition: 'border-color var(--transition-base), box-shadow var(--transition-base)',
+  transition: 'border-color 220ms, box-shadow 220ms',
 };

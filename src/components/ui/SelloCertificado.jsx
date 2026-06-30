@@ -1,92 +1,77 @@
-import React, { Suspense } from "react";
-import { useInteraction } from "../../hooks/useInteraction";
-
-const LazyPulsingBorder = React.lazy(() => 
-  import('@paper-design/shaders-react').then(module => ({ default: module.PulsingBorder }))
-);
-
+/**
+ * Sello "Certificado Sostenible" — firma giratoria de Interambiente.
+ * Versión sin WebGL: anillo de marca con conic-gradient + texto giratorio
+ * en SVG. Ligero y sin dependencias de shaders.
+ */
 export function SelloCertificado({ isWidget = false, clientName = '' }) {
-  const interacted = useInteraction();
+  const SIZE = 88;
+
   return (
-    <a 
-      href="https://interambientesa.com" 
-      target="_blank" 
+    <a
+      href="https://interambientesa.com"
+      target="_blank"
       rel="noopener noreferrer"
-      style={isWidget ? { position: 'relative', display: 'inline-block', width: '80px', height: '80px', margin: 'auto', cursor: 'pointer', zIndex: 30, textDecoration: 'none', WebkitTapHighlightColor: 'transparent' } : { position: 'absolute', bottom: '2rem', right: '3rem', zIndex: 50, cursor: 'pointer', textDecoration: 'none', WebkitTapHighlightColor: 'transparent' }}
+      aria-label="Interambiente — Certificado Sostenible"
+      style={
+        isWidget
+          ? { position: 'relative', display: 'inline-block', width: `${SIZE}px`, height: `${SIZE}px`, margin: 'auto', cursor: 'pointer', zIndex: 30, textDecoration: 'none', WebkitTapHighlightColor: 'transparent' }
+          : { position: 'absolute', top: 'clamp(5.5rem, 13vh, 7.5rem)', right: 'clamp(1.25rem, 4vw, 3rem)', zIndex: 20, cursor: 'pointer', textDecoration: 'none', WebkitTapHighlightColor: 'transparent' }
+      }
     >
-      <div style={{ position: 'relative', width: '80px', height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        {/* Skeleton/Static Fallback Circle */}
-        {!interacted && (
-          <div style={{
+      <div style={{ position: 'relative', width: `${SIZE}px`, height: `${SIZE}px`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {/* Anillo de marca (conic) */}
+        <div
+          style={{
             position: 'absolute',
-            width: '60px',
-            height: '60px',
+            width: '64px',
+            height: '64px',
             borderRadius: '50%',
-            border: '2px solid rgba(215, 148, 16, 0.4)',
-            boxShadow: '0 0 15px rgba(215, 148, 16, 0.2)'
-          }} />
-        )}
+            background: 'conic-gradient(from 90deg, #A8501E, #C8841C, #3E5A3A, #2E6B8A, #4F90AE, #A8501E)',
+            padding: '2px',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.28)',
+          }}
+        >
+          {/* Disco interior frosted para legibilidad del logo sobre cualquier foto */}
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              borderRadius: '50%',
+              background: 'rgba(20, 28, 18, 0.62)',
+              backdropFilter: 'blur(6px)',
+              WebkitBackdropFilter: 'blur(6px)',
+            }}
+          />
+        </div>
 
-        {/* Pulsing Border Circle - Lazy Loaded */}
-        {interacted && (
-          <Suspense fallback={null}>
-            <LazyPulsingBorder
-              colors={["#BD5817", "#D79410", "#2E6B8A", "#3A8BB2", "#624914", "#BD5817", "#D79410"]}
-              colorBack="#00000000"
-              speed={1.5}
-              roundness={1}
-              thickness={0.1}
-              softness={0.2}
-              intensity={5}
-              spotsPerColor={5}
-              spotSize={0.1}
-              pulse={0.1}
-              smoke={0.5}
-              smokeSize={4}
-              scale={0.65}
-              rotation={0}
-              frame={9161408.25}
-              style={{
-                width: "60px",
-                height: "60px",
-                borderRadius: "50%",
-                position: "absolute"
-              }}
-            />
-          </Suspense>
-        )}
-
-        {/* Rotating Text Around the Pulsing Border */}
-        <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', transform: "scale(1.15)" }}>
-          <svg
-            className="spin-anim"
-            style={{ width: '100%', height: '100%', transformOrigin: 'center' }}
-            viewBox="0 0 100 100"
-          >
-          <defs>
-            <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
-          </defs>
-          <text style={{ fontSize: '9px', fill: 'rgba(255,255,255,0.8)', fontFamily: 'var(--font-heading), sans-serif', letterSpacing: '1px' }}>
-            <textPath href="#circlePath" startOffset="0%" textLength="220">
-               {"\u00A0"}Interambiente Asesores • Certificado Sostenible{clientName ? ` • ${clientName}` : ""} •{"\u00A0"}
-            </textPath>
-          </text>
+        {/* Texto giratorio */}
+        <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', transform: 'scale(1.16)' }}>
+          <svg className="spin-anim" style={{ width: '100%', height: '100%', transformOrigin: 'center' }} viewBox="0 0 100 100">
+            <defs>
+              <path id="sello-circle" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+            </defs>
+            <text style={{ fontSize: '8.5px', fill: 'rgba(255,255,255,0.92)', fontFamily: 'var(--font-subtitle), sans-serif', fontWeight: 600, letterSpacing: '1.5px' }}>
+              <textPath href="#sello-circle" startOffset="0%" textLength="218">
+                {' '}INTERAMBIENTE · CERTIFICADO SOSTENIBLE{clientName ? ` · ${clientName}` : ''} ·{' '}
+              </textPath>
+            </text>
           </svg>
         </div>
 
-        {/* Logo Central Interambiente */}
-        {/* Aplicamos filtros para volverlo blanco/monocromo y que empate con la estética limpia del halo */}
-        <img 
-          src={isWidget ? "https://web-interambiente.vercel.app/logotipo-interambiente.png" : "/logotipo-interambiente.png"} 
-          alt="Logo Interambiente" 
+        {/* Logo central */}
+        <img
+          src={isWidget ? 'https://web-interambiente.vercel.app/logotipo-interambiente.png' : '/logotipo-interambiente.png'}
+          alt="Logo Interambiente"
+          width="30"
+          height="28"
           style={{
             position: 'absolute',
-            width: '28px',
+            width: '30px',
             height: 'auto',
-            zIndex: 40,
-            filter: 'grayscale(100%) brightness(200%) drop-shadow(0px 0px 4px rgba(255,255,255,0.4))',
-            opacity: 0.9,
-            pointerEvents: 'none'
+            zIndex: 2,
+            filter: 'grayscale(100%) brightness(220%) drop-shadow(0 0 5px rgba(255,255,255,0.45))',
+            opacity: 0.95,
+            pointerEvents: 'none',
           }}
         />
       </div>

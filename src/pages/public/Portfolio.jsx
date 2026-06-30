@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabase';
-import { Briefcase } from 'lucide-react';
-import { ShaderBackground } from '../../components/ui/HeroShader';
+import { Briefcase, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import PageHero from '../../components/ui/PageHero';
+import Reveal from '../../components/ui/Reveal';
 import SEO from '../../components/SEO';
 
 export default function Portfolio() {
@@ -10,18 +12,14 @@ export default function Portfolio() {
 
   useEffect(() => {
     async function fetchProjects() {
-      // Intentamos cargar la tabla nueva, y validamos la data sin colgar la view
       try {
         const { data, error } = await supabase
           .from('intamb_portfolio')
           .select('*')
           .order('created_at', { ascending: false });
-        
-        if (!error && data) {
-          setProjects(data);
-        }
+        if (!error && data) setProjects(data);
       } catch (err) {
-        console.warn("Aún no se configura la tabla.", err);
+        console.warn('Aún no se configura la tabla.', err);
       } finally {
         setLoading(false);
       }
@@ -31,44 +29,58 @@ export default function Portfolio() {
 
   return (
     <div>
-      <SEO 
-        title="Portafolio de Proyectos y Clientes | Interambiente SA" 
+      <SEO
+        title="Portafolio de Proyectos y Clientes | Interambiente SA"
         description="Organizaciones que han confiado su arquitectura sostenible y cumplimiento ambiental a nuestro equipo de técnicos."
       />
-      <ShaderBackground minHeight="auto">
-        <section className="section" style={{ paddingBottom: 'var(--space-xl)', width: '100%' }}>
-          <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
-            <h1 style={{ color: '#fff' }}>Nuestro <span style={{ color: '#6ee7b7' }}>Portafolio</span></h1>
-            <p className="subtitle" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto' }}>Casos de éxito y portafolio de proyectos integrales de sostenibilidad.</p>
-          </div>
-        </section>
-      </ShaderBackground>
+
+      <PageHero
+        imageId="1470071459604-3b5ec3a7fe05"
+        imageAlt="Cordillera verde recorrida por un camino"
+        eyebrow="Portafolio"
+        title={<>Proyectos que dejan <em style={{ fontStyle: 'italic', color: '#EBA85E', fontWeight: 500 }}>huella</em></>}
+        subtitle="Casos de éxito y proyectos integrales de sostenibilidad de las organizaciones que confían en nosotros."
+      />
 
       <section className="section">
         <div className="container">
           {loading ? (
-            <div style={{ textAlign: 'center', padding: 'var(--space-xl)', fontSize: '1.2rem', color: 'var(--color-text-muted)' }}>Cargando proyectos...</div>
-          ) : projects.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: 'var(--space-xl)', color: 'var(--color-text-muted)' }}>
-              <Briefcase size={56} style={{ margin: '0 auto var(--space-md)', opacity: 0.3 }} />
-              <p style={{ fontSize: '1.2rem' }}>Aún no hay proyectos publicados en el portafolio.</p>
-            </div>
-          ) : (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 'var(--space-lg)' }}>
-              {projects.map((project) => (
-                <div key={project.id} className="glass-panel" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-                  {project.image_url && (
-                    <img 
-                      src={project.image_url} 
-                      alt={project.title} 
-                      style={{ width: '100%', height: '220px', objectFit: 'contain', backgroundColor: '#f8fafc', padding: '16px' }} 
-                    />
-                  )}
-                  <div style={{ padding: 'var(--space-lg)', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <h3 style={{ color: 'var(--color-primary)', fontSize: '1.4rem' }}>{project.title}</h3>
-                    <p style={{ color: 'var(--color-text)', marginTop: 'var(--space-sm)' }}>{project.description}</p>
+              {[0, 1, 2].map((i) => (
+                <div key={i} className="card" style={{ padding: 0, overflow: 'hidden' }}>
+                  <div style={{ height: '200px', background: 'var(--color-bg-alt)' }} />
+                  <div style={{ padding: 'var(--space-lg)' }}>
+                    <div style={{ height: '20px', width: '60%', background: 'var(--color-bg-alt)', borderRadius: '6px', marginBottom: '12px' }} />
+                    <div style={{ height: '14px', width: '90%', background: 'var(--color-bg-alt)', borderRadius: '6px' }} />
                   </div>
                 </div>
+              ))}
+            </div>
+          ) : projects.length === 0 ? (
+            <Reveal className="card" style={{ textAlign: 'center', padding: 'var(--space-2xl) var(--space-lg)', maxWidth: '560px', margin: '0 auto' }}>
+              <span style={{ display: 'inline-flex', width: '64px', height: '64px', borderRadius: '50%', background: 'var(--color-bg-alt)', alignItems: 'center', justifyContent: 'center', marginBottom: 'var(--space-md)' }}>
+                <Briefcase size={30} color="var(--color-primary)" />
+              </span>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '8px' }}>Portafolio en construcción</h3>
+              <p style={{ color: 'var(--color-text-muted)', marginBottom: 'var(--space-lg)' }}>
+                Estamos preparando los casos de éxito. Mientras tanto, conversemos sobre tu proyecto.
+              </p>
+              <Link to="/contacto" className="btn btn-primary">Hablar con un experto <ArrowRight size={18} /></Link>
+            </Reveal>
+          ) : (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 'var(--space-lg)' }}>
+              {projects.map((project, i) => (
+                <Reveal key={project.id} delay={(i % 3) * 90} className="card card-hover" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                  {project.image_url && (
+                    <div style={{ height: '220px', background: 'var(--color-bg-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', borderBottom: '1px solid var(--color-line)' }}>
+                      <img src={project.image_url} alt={project.title} loading="lazy" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                    </div>
+                  )}
+                  <div style={{ padding: 'var(--space-lg)', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <h3 style={{ color: 'var(--color-secondary)', fontSize: '1.35rem', marginBottom: 'var(--space-sm)' }}>{project.title}</h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.98rem', lineHeight: 1.6 }}>{project.description}</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
           )}

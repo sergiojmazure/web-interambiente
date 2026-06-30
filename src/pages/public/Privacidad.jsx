@@ -33,7 +33,7 @@ export default function Privacidad() {
               <FileText size={20} color="var(--color-primary)" /> 1. Responsable del Tratamiento
             </h3>
             <p>
-              Interambiente es responsable del tratamiento de los datos personales recabados a través del sitio web. Para efectos de derechos y consultas, puedes contactarnos al correo: <strong>soastec@gmail.com</strong> o <strong>info@interambiente.com</strong>.
+              Interambiente es responsable del tratamiento de los datos personales recabados a través del sitio web. Para efectos de derechos y consultas, puedes contactarnos al correo: <strong>info@interambientesa.com</strong>.
             </p>
 
             <h3 style={{ color: 'var(--color-secondary)', marginTop: 'var(--space-xl)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
