@@ -38,7 +38,7 @@ export default function Portfolio() {
         imageId="1470071459604-3b5ec3a7fe05"
         imageAlt="Cordillera verde recorrida por un camino"
         eyebrow="Portafolio"
-        title={<>Proyectos que dejan <em style={{ fontStyle: 'italic', color: '#EBA85E', fontWeight: 500 }}>huella</em></>}
+        title={<>Proyectos que dejan <span style={{ color: 'var(--color-accent)' }}>huella</span></>}
         subtitle="Casos de éxito y proyectos integrales de sostenibilidad de las organizaciones que confían en nosotros."
       />
 

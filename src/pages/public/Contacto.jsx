@@ -64,7 +64,7 @@ export default function Contacto() {
         imageId="1518837695005-2083093ee35b"
         imageAlt="Superficie del mar en calma al atardecer"
         eyebrow="Contacto"
-        title={<>Estamos aquí para <em style={{ fontStyle: 'italic', color: '#EBA85E', fontWeight: 500 }}>ayudarte</em></>}
+        title={<>Estamos aquí para <span style={{ color: 'var(--color-accent)' }}>ayudarte</span></>}
         subtitle="Aseguremos que el cumplimiento técnico y legal de tu proyecto sea impecable de principio a fin."
       />
 
@@ -73,7 +73,6 @@ export default function Contacto() {
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-2xl)', alignItems: 'start' }}>
           {/* Form */}
           <Reveal className="card" style={{ padding: 'clamp(1.5rem, 4vw, var(--space-xl))' }}>
-            <span className="eyebrow">Escríbenos</span>
             <h2 style={{ fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', marginBottom: 'var(--space-lg)' }}>Cuéntanos sobre tu proyecto</h2>
 
             {status === 'success' ? (
@@ -96,7 +95,7 @@ export default function Contacto() {
                 <Field label="¿En qué podemos ayudarte? *">
                   <textarea required rows="5" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} style={{ ...inputStyle, resize: 'vertical' }} placeholder="Cuéntanos sobre tu proyecto o consulta..." />
                 </Field>
-                {status === 'error' && <p style={{ color: '#C0392B', fontSize: '0.9rem', margin: 0 }}>Ocurrió un error de red. Intenta nuevamente.</p>}
+                {status === 'error' && <p style={{ color: '#A3301C', fontSize: '0.9rem', margin: 0 }}>No pudimos enviar tu consulta. Revisa tu conexión e inténtalo de nuevo.</p>}
                 <button type="submit" className="btn btn-primary" disabled={status === 'loading'} style={{ opacity: status === 'loading' ? 0.7 : 1, width: '100%' }}>
                   {status === 'loading' ? 'Enviando...' : (<>Enviar consulta <Send size={18} /></>)}
                 </button>
@@ -112,7 +111,7 @@ export default function Contacto() {
             </div>
             {INFO.map((item) => (
               <div key={item.label} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                <span style={{ flexShrink: 0, width: '50px', height: '50px', borderRadius: 'var(--radius-md)', background: 'var(--color-bg-alt)', color: 'var(--color-primary)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ flexShrink: 0, width: '50px', height: '50px', borderRadius: 'var(--radius-md)', background: 'var(--color-bg-alt)', color: 'var(--color-primary-deep)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                   <item.icon size={24} strokeWidth={1.75} />
                 </span>
                 <div>
@@ -136,13 +135,13 @@ export default function Contacto() {
       <section className="section bg-light">
         <div className="container">
           <Reveal className="text-center" style={{ marginBottom: 'var(--space-xl)', maxWidth: '680px', marginLeft: 'auto', marginRight: 'auto' }}>
-            <span className="eyebrow" style={{ justifyContent: 'center' }}>Preguntas frecuentes</span>
+            
             <h2 style={{ fontSize: 'clamp(1.9rem, 4vw, 2.8rem)' }}>Resuelve tus dudas sobre normativa</h2>
           </Reveal>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-lg)' }}>
             {FAQS.map((faq, idx) => (
               <Reveal key={idx} delay={(idx % 3) * 80} className="card" style={{ padding: 'var(--space-lg)' }}>
-                <span style={{ display: 'inline-flex', width: '44px', height: '44px', borderRadius: 'var(--radius-md)', background: 'var(--color-bg-alt)', color: 'var(--color-primary)', alignItems: 'center', justifyContent: 'center', marginBottom: 'var(--space-md)' }}>
+                <span style={{ display: 'inline-flex', width: '44px', height: '44px', borderRadius: 'var(--radius-md)', background: 'var(--color-bg-alt)', color: 'var(--color-primary-deep)', alignItems: 'center', justifyContent: 'center', marginBottom: 'var(--space-md)' }}>
                   <faq.icon size={22} strokeWidth={1.75} />
                 </span>
                 <h3 style={{ fontSize: '1.15rem', marginBottom: '10px', lineHeight: 1.3 }}>{faq.q}</h3>
@@ -154,7 +153,7 @@ export default function Contacto() {
       </section>
 
       <style>{`
-        .card input:focus, .card textarea:focus { border-color: var(--color-primary) !important; box-shadow: 0 0 0 3px rgba(168, 80, 30, 0.12) !important; }
+        .card input:focus, .card textarea:focus { border-color: var(--color-primary-deep) !important; box-shadow: 0 0 0 3px rgba(158, 78, 28, 0.14) !important; }
       `}</style>
     </>
   );

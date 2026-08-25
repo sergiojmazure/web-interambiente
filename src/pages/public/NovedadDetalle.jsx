@@ -48,7 +48,7 @@ export default function NovedadDetalle() {
       {post.image_url ? (
         <div style={{ width: '100%', height: '46vh', minHeight: '320px', position: 'relative', overflow: 'hidden', isolation: 'isolate' }}>
           <img src={post.image_url} alt={post.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: -1 }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,28,18,0.30) 0%, rgba(20,28,18,0.78) 100%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(28,38,22,0.30) 0%, rgba(28,38,22,0.80) 100%)' }} />
           <div className="container" style={{ position: 'relative', display: 'flex', alignItems: 'flex-end', height: '100%', paddingBottom: 'var(--space-2xl)' }}>
             <div style={{ maxWidth: '900px' }}>
               <Link to="/novedades" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'rgba(245,240,230,0.85)', fontSize: '0.92rem', fontWeight: 600, marginBottom: 'var(--space-md)' }}>
@@ -96,15 +96,14 @@ export default function NovedadDetalle() {
         .article-content h2 { font-size: 1.7rem; }
         .article-content h3 { font-size: 1.4rem; }
         .article-content p { margin-bottom: 1.4em; }
-        .article-content a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+        .article-content a { color: var(--color-primary-deep); text-decoration: underline; text-underline-offset: 2px; }
         .article-content blockquote {
-          border-left: 4px solid var(--color-primary);
           margin: 1.6em 0;
           font-style: italic;
           color: var(--color-secondary);
           background: var(--color-bg-light);
-          padding: 18px 22px;
-          border-radius: 0 var(--radius-md) var(--radius-md) 0;
+          padding: 20px 24px;
+          border-radius: var(--radius-md);
         }
         .article-content img { max-width: 100%; border-radius: var(--radius-md); margin: 1.8em 0; box-shadow: var(--shadow-sm); }
         .article-content ul, .article-content ol { margin-bottom: 1.4em; padding-left: 1.6em; }

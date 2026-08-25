@@ -1,40 +1,57 @@
 /* ============================================================
    INTERAMBIENTE — Sistema de diseño
-   Dirección: Natural / orgánica, anclada a la marca real
-   (triángulo terracota + olas azul océano del logo).
-   Las variables conservan sus nombres previos para no romper
-   los estilos inline existentes; cambian sus valores.
+   Basado en el Manual de identidad de marca 2026.
+
+   Paleta oficial
+     Terracota      #C1652E  Economía. Principal y wordmark.
+     Olivo          #8A9A5B  Ambiente. Acento secundario.
+     Ocre dorado    #D9A441  Sociedad. Acento terciario.
+     Grafito        #2C2C2C  Texto sobre fondos claros.
+     Blanco hueso   #F7F4F0  Fondos suaves y espacios de respiro.
+     Verde oscuro   #2C3A24  Fondos oscuros.
+
+   Tipografía
+     Nunito          títulos, encabezados, wordmark y tagline.
+     Be Vietnam Pro  cuerpo de texto.
+
+   Nota de accesibilidad: el terracota de marca (#C1652E) rinde 4,06:1
+   sobre blanco, suficiente para texto grande pero no para cuerpo. Se
+   conserva intacto en logo y titulares, y se deriva --color-primary-deep
+   para botones, enlaces y texto pequeño, donde hace falta AA (4,5:1).
    ============================================================ */
 
 :root {
-  /* --- Marca (del logo) --- */
-  --color-primary: #A8501E;            /* Terracota (triángulo) */
-  --color-primary-deep: #8A3F16;       /* Terracota profunda (hover/sombra) */
-  --color-primary-soft: #C97B45;       /* Terracota clara */
-  --color-complementary: #2E6B8A;      /* Azul océano (olas) */
-  --color-complementary-light: #4F90AE;/* Azul claro */
+  /* --- Marca --- */
+  --color-primary: #C1652E;        /* Terracota */
+  --color-primary-deep: #9E4E1C;   /* Terracota profunda: interacción accesible */
+  --color-primary-soft: #DE9463;   /* Terracota clara: acentos sobre verde oscuro */
+  --color-olivo: #8A9A5B;
+  --color-olivo-deep: #5F6E3A;     /* Olivo accesible sobre claro */
+  --color-accent: #D9A441;         /* Ocre dorado */
 
-  /* --- Capa natural --- */
-  --color-forest: #3E5A3A;             /* Verde musgo/bosque (sustituye al esmeralda) */
-  --color-forest-soft: #5F7B53;        /* Verde salvia */
-  --color-accent: #C8841C;             /* Ámbar/ocre (cifras, destacados) */
-  --color-secondary: #2C3A2A;          /* Tinta bosque (títulos) */
+  /* Compatibilidad con estilos existentes */
+  --color-forest: var(--color-olivo-deep);
+  --color-forest-soft: var(--color-olivo);
+  --color-complementary: var(--color-olivo-deep);
+  --color-complementary-light: var(--color-olivo);
 
-  /* --- Neutros cálidos --- */
-  --color-text: #221F19;               /* Casi-negro cálido */
-  --color-text-muted: #6E655A;         /* Taupe */
-  --color-bg: #FDFBF7;                  /* Blanco cálido */
-  --color-bg-light: #F5F0E8;            /* Marfil/crema */
-  --color-bg-alt: #EBE3D5;             /* Arena */
-  --color-ink: #1B2419;                /* Bosque profundo (secciones oscuras) */
-  --color-ink-2: #243024;              /* Bosque profundo 2 */
-  --color-line: #E3DACB;               /* Línea sutil sobre crema */
-  --color-line-soft: rgba(44, 58, 42, 0.10);
+  /* --- Neutros --- */
+  --color-secondary: #2C3A24;      /* Verde oscuro: titulares */
+  --color-text: #2C2C2C;           /* Grafito */
+  --color-text-muted: #6B6257;     /* 5,4:1 sobre hueso */
+  --color-bg: #FFFFFF;
+  --color-bg-light: #F7F4F0;       /* Blanco hueso */
+  --color-bg-alt: #EDE6DB;         /* Hueso profundo para bandas */
+  --color-ink: #2C3A24;
+  --color-ink-2: #35452B;
+  --color-line: #E3DBCF;
+  --color-line-strong: #D5CABA;
+  --color-line-soft: rgba(44, 58, 36, 0.10);
 
   /* --- Tipografía --- */
-  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;
-  --font-subtitle: 'Hanken Grotesk Variable', system-ui, sans-serif;
-  --font-body: 'Hanken Grotesk Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Nunito Variable', 'Nunito', system-ui, sans-serif;
+  --font-subtitle: 'Nunito Variable', 'Nunito', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   /* --- Espaciado --- */
   --space-xs: 0.25rem;
@@ -45,18 +62,18 @@
   --space-2xl: 6rem;
   --space-xxl: 8rem;
 
-  /* --- Radios (sistema: inputs 10 · botones 14 · tarjetas 22) --- */
+  /* --- Radios --- */
   --radius-sm: 10px;
   --radius-md: 14px;
   --radius-lg: 22px;
   --radius-full: 9999px;
 
-  /* --- Sombras (tintadas en cálido) --- */
-  --shadow-sm: 0 1px 2px rgba(40, 30, 20, 0.04), 0 4px 12px rgba(40, 30, 20, 0.05);
-  --shadow-md: 0 10px 30px rgba(60, 45, 30, 0.08);
-  --shadow-lg: 0 28px 64px rgba(50, 38, 24, 0.14);
+  /* --- Sombras (con desplazamiento y difuminado reales, tintadas en cálido) --- */
+  --shadow-sm: 0 1px 2px rgba(44, 40, 32, 0.05), 0 4px 12px rgba(44, 40, 32, 0.05);
+  --shadow-md: 0 8px 24px rgba(44, 40, 32, 0.08);
+  --shadow-lg: 0 24px 56px rgba(38, 34, 26, 0.14);
 
-  /* --- Transiciones --- */
+  /* --- Movimiento --- */
   --transition-base: 320ms cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -73,30 +90,18 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   background-color: var(--color-bg);
-  line-height: 1.65;
-  font-size: 1.0625rem;
+  line-height: 1.625;              /* Be Vietnam Pro 16/26 del manual */
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
-/* Grano de papel sutil para la sensación orgánica (no intercepta clics) */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.4;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.08;
+  font-weight: 500;                /* Nunito Medium */
+  letter-spacing: -0.01em;
+  line-height: 1.09;               /* Nunito 44/48 del manual */
   color: var(--color-secondary);
   margin-bottom: var(--space-sm);
   text-wrap: balance;
@@ -105,32 +110,32 @@ h1, h2, h3, h4, h5, h6 {
 p { text-wrap: pretty; }
 
 .subtitle {
-  font-family: var(--font-subtitle);
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-weight: 300;                /* Nunito Light */
   font-size: 1.2rem;
-  line-height: 1.6;
+  line-height: 1.35;
   margin-bottom: var(--space-md);
   color: var(--color-text-muted);
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-primary-deep);
   text-decoration: none;
   transition: color var(--transition-base);
 }
-a:hover { color: var(--color-primary-deep); }
+a:hover { color: var(--color-primary); }
 
 img { max-width: 100%; display: block; }
 
 ::selection { background: var(--color-primary); color: #fff; }
 
 :focus-visible {
-  outline: 2.5px solid var(--color-complementary);
+  outline: 2.5px solid var(--color-primary-deep);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* ---------- Utilidades de layout ---------- */
+/* ---------- Layout ---------- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -140,101 +145,91 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 640px) { .container { padding: 0 var(--space-md); } }
 
-.container-narrow { max-width: 820px; margin: 0 auto; }
+.container-narrow { max-width: 760px; margin: 0 auto; }
 
 .section { padding: clamp(3.5rem, 8vw, 7rem) 0; position: relative; }
-.section-tight { padding: clamp(2.5rem, 5vw, 4rem) 0; }
+.section-tight { padding: clamp(2.25rem, 4vw, 3.25rem) 0; }
 
 .text-center { text-align: center; }
 .text-muted { color: var(--color-text-muted); }
 
-/* Eyebrow / kicker — usar con moderación (máx. 1 por cada 3 secciones) */
+/* Kicker de marca. Se usa con moderación: no encabeza cada sección. */
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-subtitle);
-  font-size: 0.8rem;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.28em;          /* tracking del tagline del manual */
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-primary-deep);
   margin-bottom: var(--space-md);
-}
-.eyebrow::before {
-  content: "";
-  width: 22px; height: 2px;
-  background: var(--color-primary);
-  border-radius: 2px;
 }
 
 .heading-secondary {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.06;
-  letter-spacing: -0.025em;
+  line-height: 1.09;
+  letter-spacing: -0.01em;
   color: var(--color-secondary);
 }
 
 .lead {
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   line-height: 1.65;
   color: var(--color-text-muted);
-  max-width: 60ch;
+  max-width: 68ch;                 /* medida de lectura */
 }
 
 /* ---------- Fondos ---------- */
 .bg-light { background-color: var(--color-bg-light); }
 .bg-cream { background-color: var(--color-bg-alt); }
-.bg-gradient {
-  background:
-    radial-gradient(120% 80% at 100% 0%, rgba(46, 107, 138, 0.07), transparent 60%),
-    radial-gradient(120% 80% at 0% 100%, rgba(168, 80, 30, 0.07), transparent 55%),
-    var(--color-bg-light);
-}
+.bg-gradient { background-color: var(--color-bg-light); }
 .bg-dark {
   background-color: var(--color-ink);
   color: #EDE7DA;
 }
-.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4 { color: #F5F0E6; }
+.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4 { color: #F7F4F0; }
 
 /* ---------- Botones ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 14px 28px;
+  gap: 9px;
+  padding: 14px 26px;
   border-radius: var(--radius-md);
-  font-family: var(--font-subtitle);
+  font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.02rem;
+  font-size: 1rem;
   line-height: 1;
-  letter-spacing: -0.01em;
   cursor: pointer;
   border: 1.5px solid transparent;
-  transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+              background-color var(--transition-base), color var(--transition-base),
+              border-color var(--transition-base);
   white-space: nowrap;
 }
 .btn:active { transform: translateY(1px) scale(0.99); }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(168, 80, 30, 0.24);
-}
-.btn-primary:hover {
   background-color: var(--color-primary-deep);
   color: #fff;
+  box-shadow: 0 4px 14px rgba(158, 78, 28, 0.22);
+}
+.btn-primary:hover {
+  background-color: #86400F;
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(138, 63, 22, 0.30);
+  box-shadow: 0 10px 24px rgba(134, 64, 15, 0.28);
 }
 
 .btn-secondary {
   background-color: transparent;
   color: var(--color-secondary);
-  border-color: var(--color-line);
+  border-color: var(--color-line-strong);
 }
 .btn-secondary:hover {
   background-color: var(--color-secondary);
@@ -245,11 +240,11 @@ img { max-width: 100%; display: block; }
 
 .btn-outline {
   background-color: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  color: var(--color-primary-deep);
+  border-color: var(--color-primary-deep);
 }
 .btn-outline:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-deep);
   color: #fff;
   transform: translateY(-2px);
 }
@@ -260,23 +255,35 @@ img { max-width: 100%; display: block; }
 }
 .btn-ghost:hover { background-color: var(--color-line); transform: translateY(-2px); }
 
-/* ---------- Tarjetas / paneles ---------- */
+/* Botón sobre superficies oscuras */
+.btn-on-dark {
+  background-color: transparent;
+  color: #F7F4F0;
+  border-color: rgba(247, 244, 240, 0.42);
+}
+.btn-on-dark:hover {
+  background-color: #F7F4F0;
+  color: var(--color-secondary);
+  border-color: #F7F4F0;
+  transform: translateY(-2px);
+}
+
+/* ---------- Superficies ---------- */
 .card {
   background: var(--color-bg);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   padding: var(--space-lg);
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+              border-color var(--transition-base);
 }
 .card-hover:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: var(--color-primary-soft);
+  border-color: var(--color-line-strong);
 }
 
-/* glass-panel: re-templado de cristal a "papel cálido" (mejora todas las
-   tarjetas existentes sin tocar cada archivo) */
 .glass-panel {
   background: var(--color-bg);
   border: 1px solid var(--color-line);
@@ -284,34 +291,25 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius-lg);
 }
 
-.divider {
-  height: 1px;
-  background: var(--color-line);
-  border: none;
-}
+.divider { height: 1px; background: var(--color-line); border: none; }
 
-/* ---------- Chips / etiquetas ---------- */
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
+  gap: 8px;
+  padding: 8px 15px;
   border-radius: var(--radius-full);
-  font-family: var(--font-subtitle);
-  font-size: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
   font-weight: 600;
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
   color: var(--color-secondary);
   border: 1px solid var(--color-line);
 }
 
-/* ---------- Navegación (responsive helpers) ---------- */
-@media (max-width: 880px) {
-  .desktop-nav { display: none !important; }
-}
-@media (min-width: 881px) {
-  .mobile-menu-btn { display: none !important; }
-}
+/* ---------- Navegación ---------- */
+@media (max-width: 900px) { .desktop-nav { display: none !important; } }
+@media (min-width: 901px) { .mobile-menu-btn { display: none !important; } }
 
 /* ---------- Grids ---------- */
 .stats-grid {
@@ -322,31 +320,23 @@ img { max-width: 100%; display: block; }
 @media (min-width: 640px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
 
-/* ---------- Reveal en scroll (controlado por IntersectionObserver) ---------- */
+/* ---------- Reveal en scroll ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  transform: translateY(18px);
+  transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
   will-change: opacity, transform;
 }
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
+.reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- Animaciones ---------- */
 @keyframes spin-anim { 100% { transform: rotate(360deg); } }
-.spin-anim { animation: spin-anim 26s linear infinite; }
+.spin-anim { animation: spin-anim 30s linear infinite; }
 
 @keyframes spin { 100% { transform: rotate(360deg); } }
 .lucide-spin { animation: spin 1s linear infinite; }
 
-@keyframes floaty {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* ---------- Accesibilidad: movimiento reducido ---------- */
+/* ---------- Movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -356,4 +346,20 @@ img { max-width: 100%; display: block; }
   }
   .reveal { opacity: 1; transform: none; }
   .spin-anim { animation: none; }
+}
+
+/* ---------- Isotipo: entrada escalonada de los tres pétalos ----------
+   Único momento de movimiento autoral de la página: la tríada se
+   compone pétalo a pétalo en el sentido fijo terracota → olivo → ocre. */
+.petal-in {
+  opacity: 0;
+  transform: scale(0.82);
+  transform-origin: center;
+  animation: petal-in 900ms var(--ease-out) forwards;
+}
+@keyframes petal-in {
+  to { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .petal-in { opacity: 1; transform: none; animation: none; }
 }

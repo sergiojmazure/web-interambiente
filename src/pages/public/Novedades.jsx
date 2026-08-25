@@ -60,7 +60,7 @@ export default function Novedades() {
         imageId="1441974231531-c6227db76b6e"
         imageAlt="Sendero de bosque iluminado entre árboles"
         eyebrow="Novedades"
-        title={<>Noticias y <em style={{ fontStyle: 'italic', color: '#EBA85E', fontWeight: 500 }}>análisis</em></>}
+        title={<>Noticias y <span style={{ color: 'var(--color-accent)' }}>análisis</span></>}
         subtitle="Análisis, tendencias y comunicados relevantes sobre nuestra labor medioambiental."
       />
 
@@ -115,7 +115,7 @@ export default function Novedades() {
                               {d.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
                             </span>
                             <h3 style={{ color: 'var(--color-secondary)', fontSize: '1.25rem', marginBottom: 'var(--space-md)', lineHeight: 1.3 }}>{post.title}</h3>
-                            <div style={{ marginTop: 'auto', display: 'inline-flex', alignItems: 'center', color: 'var(--color-primary)', fontWeight: 600, fontSize: '0.92rem', gap: '6px' }}>
+                            <div style={{ marginTop: 'auto', display: 'inline-flex', alignItems: 'center', color: 'var(--color-primary-deep)', fontWeight: 600, fontSize: '0.92rem', gap: '6px' }}>
                               Leer artículo <ArrowRight size={16} className="news-arrow" />
                             </div>
                           </div>

@@ -1,17 +1,22 @@
+import Isotipo from '../brand/Isotipo';
+
 /**
- * Sello "Certificado Sostenible" — firma giratoria de Interambiente.
- * Versión sin WebGL: anillo de marca con conic-gradient + texto giratorio
- * en SVG. Ligero y sin dependencias de shaders.
+ * Sello "Aliados en sostenibilidad".
+ *
+ * Respeta los don'ts del manual: el isotipo va en su variante monocroma
+ * hueso sobre verde oscuro, sin sombras, degradados, contornos ni brillos,
+ * y con área de respeto libre alrededor. El anillo de texto es un elemento
+ * independiente, nunca se superpone al símbolo.
  */
 export function SelloCertificado({ isWidget = false, clientName = '' }) {
-  const SIZE = 88;
+  const SIZE = 92;
 
   return (
     <a
       href="https://interambientesa.com"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Interambiente — Certificado Sostenible"
+      aria-label="Interambiente — Aliados en sostenibilidad"
       style={
         isWidget
           ? { position: 'relative', display: 'inline-block', width: `${SIZE}px`, height: `${SIZE}px`, margin: 'auto', cursor: 'pointer', zIndex: 30, textDecoration: 'none', WebkitTapHighlightColor: 'transparent' }
@@ -19,61 +24,43 @@ export function SelloCertificado({ isWidget = false, clientName = '' }) {
       }
     >
       <div style={{ position: 'relative', width: `${SIZE}px`, height: `${SIZE}px`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        {/* Anillo de marca (conic) */}
+        {/* Disco de marca en verde oscuro: fondo sólido, sin efectos */}
         <div
           style={{
             position: 'absolute',
-            width: '64px',
-            height: '64px',
+            width: '66px',
+            height: '66px',
             borderRadius: '50%',
-            background: 'conic-gradient(from 90deg, #A8501E, #C8841C, #3E5A3A, #2E6B8A, #4F90AE, #A8501E)',
-            padding: '2px',
-            boxShadow: '0 6px 20px rgba(0,0,0,0.28)',
+            background: '#2C3A24',
+            border: '1px solid rgba(247, 244, 240, 0.22)',
           }}
-        >
-          {/* Disco interior frosted para legibilidad del logo sobre cualquier foto */}
-          <div
-            style={{
-              width: '100%',
-              height: '100%',
-              borderRadius: '50%',
-              background: 'rgba(20, 28, 18, 0.62)',
-              backdropFilter: 'blur(6px)',
-              WebkitBackdropFilter: 'blur(6px)',
-            }}
-          />
-        </div>
+        />
 
-        {/* Texto giratorio */}
-        <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', transform: 'scale(1.16)' }}>
+        {/* Isotipo monocromo hueso, con su área de respeto libre */}
+        <Isotipo size={30} variant="hueso" style={{ position: 'relative', zIndex: 2 }} />
+
+        {/* Anillo de texto, fuera del área del símbolo */}
+        <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
           <svg className="spin-anim" style={{ width: '100%', height: '100%', transformOrigin: 'center' }} viewBox="0 0 100 100">
             <defs>
-              <path id="sello-circle" d="M 50,50 m -35,0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+              <path id="sello-circle" d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
             </defs>
-            <text style={{ fontSize: '8.5px', fill: 'rgba(255,255,255,0.92)', fontFamily: 'var(--font-subtitle), sans-serif', fontWeight: 600, letterSpacing: '1.5px' }}>
-              <textPath href="#sello-circle" startOffset="0%" textLength="218">
-                {' '}INTERAMBIENTE · CERTIFICADO SOSTENIBLE{clientName ? ` · ${clientName}` : ''} ·{' '}
+            <text
+              style={{
+                fontSize: '7.6px',
+                fill: '#F7F4F0',
+                fontFamily: 'var(--font-display), sans-serif',
+                fontWeight: 600,
+                letterSpacing: '2.2px',
+                textTransform: 'uppercase',
+              }}
+            >
+              <textPath href="#sello-circle" startOffset="0%" textLength="248">
+                {' '}Interambiente · Aliados en sostenibilidad{clientName ? ` · ${clientName}` : ''} ·{' '}
               </textPath>
             </text>
           </svg>
         </div>
-
-        {/* Logo central */}
-        <img
-          src={isWidget ? 'https://web-interambiente.vercel.app/logotipo-interambiente.png' : '/logotipo-interambiente.png'}
-          alt="Logo Interambiente"
-          width="30"
-          height="28"
-          style={{
-            position: 'absolute',
-            width: '30px',
-            height: 'auto',
-            zIndex: 2,
-            filter: 'grayscale(100%) brightness(220%) drop-shadow(0 0 5px rgba(255,255,255,0.45))',
-            opacity: 0.95,
-            pointerEvents: 'none',
-          }}
-        />
       </div>
     </a>
   );

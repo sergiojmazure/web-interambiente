@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 
 export default function SEO({ 
-  title = "Interambiente SA - Soluciones Ambientales Estratégicas y SaaS", 
-  description = "Consultoría avanzada en cumplimiento normativo, tecnología predictiva y certificaciones de sostenibilidad digital para industrias de alto impacto.",
-  image = "https://interambientesa.com/logo-interambiente.png", // Reemplazar con URL real genérica
+  title = "Interambiente | Aliados en sostenibilidad", 
+  description = "Asesoría y gestión ambiental en Ecuador. Convertimos el cumplimiento normativo en ventaja competitiva: regularización, fiscalización, estudios de impacto y gestión de residuos.",
+  image = "https://interambientesa.com/og-interambiente.png",
   url = "https://interambientesa.com",
   type = "website"
 }) {
@@ -19,7 +19,8 @@ export default function SEO({
       <meta property="og:image" content={image} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />
-      <meta property="og:site_name" content="Interambiente SA" />
+      <meta property="og:site_name" content="Interambiente S.A.S." />
+      <meta property="og:locale" content="es_EC" />
 
       {/* Etiquetas Twitter/X */}
       <meta name="twitter:card" content="summary_large_image" />

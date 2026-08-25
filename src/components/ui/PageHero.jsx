@@ -37,7 +37,7 @@ export default function PageHero({
         alignItems: isHome ? 'flex-end' : 'center',
         overflow: 'hidden',
         background:
-          'linear-gradient(135deg, #1B2419 0%, #2E6B8A 55%, #A8501E 120%)',
+          'linear-gradient(135deg, #2C3A24 0%, #4A5B38 55%, #C1652E 130%)',
         isolation: 'isolate',
       }}
     >
@@ -71,8 +71,8 @@ export default function PageHero({
           inset: 0,
           zIndex: -1,
           background: centered
-            ? 'linear-gradient(180deg, rgba(20,28,18,0.40) 0%, rgba(20,28,18,0.66) 100%)'
-            : 'linear-gradient(95deg, rgba(20,28,18,0.84) 0%, rgba(20,28,18,0.46) 46%, rgba(20,28,18,0.08) 78%, rgba(20,28,18,0.26) 100%)',
+            ? 'linear-gradient(180deg, rgba(28,38,22,0.42) 0%, rgba(28,38,22,0.70) 100%)'
+            : 'linear-gradient(95deg, rgba(28,38,22,0.86) 0%, rgba(28,38,22,0.50) 46%, rgba(28,38,22,0.10) 78%, rgba(28,38,22,0.30) 100%)',
         }}
       />
       <div
@@ -80,7 +80,7 @@ export default function PageHero({
           position: 'absolute',
           inset: 0,
           zIndex: -1,
-          background: 'linear-gradient(0deg, rgba(20,28,18,0.55) 0%, transparent 42%)',
+          background: 'linear-gradient(0deg, rgba(28,38,22,0.58) 0%, transparent 42%)',
         }}
       />
 
@@ -94,7 +94,7 @@ export default function PageHero({
       >
         <div
           style={{
-            maxWidth: centered ? '880px' : '760px',
+            maxWidth: centered ? '880px' : isHome ? '900px' : '760px',
             margin: centered ? '0 auto' : 0,
           }}
         >
@@ -102,7 +102,7 @@ export default function PageHero({
             <span
               className="eyebrow"
               style={{
-                color: '#F2C98A',
+                color: 'var(--color-accent)',
                 justifyContent: centered ? 'center' : 'flex-start',
               }}
             >
@@ -114,10 +114,10 @@ export default function PageHero({
             style={{
               color: '#FCFAF5',
               fontSize: isHome
-                ? 'clamp(2.6rem, 6vw, 4.6rem)'
-                : 'clamp(2.1rem, 4.6vw, 3.4rem)',
+                ? 'clamp(2.15rem, 4.6vw, 3.5rem)'
+                : 'clamp(1.9rem, 3.9vw, 2.9rem)',
               lineHeight: 1.04,
-              letterSpacing: '-0.03em',
+              letterSpacing: '-0.015em',
               marginBottom: subtitle ? '1.25rem' : 0,
               textShadow: '0 2px 30px rgba(0,0,0,0.28)',
             }}
@@ -128,8 +128,8 @@ export default function PageHero({
           {subtitle && (
             <p
               style={{
-                fontFamily: 'var(--font-subtitle)',
-                fontSize: isHome ? 'clamp(1.1rem, 1.7vw, 1.3rem)' : '1.15rem',
+                fontFamily: 'var(--font-body)',
+                fontSize: isHome ? 'clamp(1.05rem, 1.6vw, 1.22rem)' : '1.1rem',
                 lineHeight: 1.55,
                 color: 'rgba(245, 240, 230, 0.88)',
                 maxWidth: '46ch',

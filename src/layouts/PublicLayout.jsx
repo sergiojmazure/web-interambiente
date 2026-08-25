@@ -1,6 +1,7 @@
 import { Outlet, Link, NavLink, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Menu, X, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import Isotipo from '../components/brand/Isotipo';
 
 const NAV = [
   { to: '/', label: 'Inicio', end: true },
@@ -10,9 +11,26 @@ const NAV = [
   { to: '/novedades', label: 'Novedades' },
 ];
 
+/* Wordmark de marca: Nunito Medium. Sobre verde oscuro va en blanco hueso. */
+function Wordmark({ size = 21 }) {
+  return (
+    <span
+      style={{
+        fontFamily: 'var(--font-display)',
+        fontWeight: 500,
+        fontSize: `${size}px`,
+        color: '#F7F4F0',
+        letterSpacing: '-0.005em',
+        lineHeight: 1,
+      }}
+    >
+      Interambiente
+    </span>
+  );
+}
+
 export default function PublicLayout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,72 +38,69 @@ export default function PublicLayout() {
     if (!location.hash) window.scrollTo(0, 0);
   }, [location]);
 
+  // Bloquea el scroll del fondo mientras el menú móvil está abierto
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isMenuOpen]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      {/* Barra de navegación en verde oscuro, según la aplicación digital del manual */}
       <header
         style={{
           position: 'sticky',
           top: 0,
           zIndex: 50,
-          backgroundColor: scrolled ? 'rgba(253, 251, 247, 0.86)' : 'rgba(253, 251, 247, 0.6)',
-          backdropFilter: 'blur(14px)',
-          WebkitBackdropFilter: 'blur(14px)',
-          borderBottom: `1px solid ${scrolled ? 'var(--color-line)' : 'transparent'}`,
-          transition: 'background-color 300ms, border-color 300ms',
+          backgroundColor: 'rgba(44, 58, 36, 0.94)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderBottom: '1px solid rgba(247, 244, 240, 0.10)',
         }}
       >
         <div
           className="container"
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            height: '74px',
-          }}
+          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '76px' }}
         >
-          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ display: 'flex', alignItems: 'center', gap: '10px' }} aria-label="Interambiente — inicio">
-            <img
-              src="/logotipo-interambiente.webp"
-              alt="Interambiente"
-              width="200"
-              height="187"
-              style={{ height: '46px', width: 'auto', objectFit: 'contain' }}
-            />
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '12px' }}
+            aria-label="Interambiente, ir al inicio"
+          >
+            <Isotipo size={34} variant="hueso" />
+            <Wordmark />
           </Link>
 
-          {/* Nav escritorio */}
-          <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+          <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
             {NAV.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
                 end={item.end}
+                className="nav-link"
                 style={({ isActive }) => ({
                   ...navLinkStyle,
-                  color: isActive && !item.to.includes('#') ? 'var(--color-primary)' : 'var(--color-secondary)',
+                  color: isActive && !item.to.includes('#') ? '#F7F4F0' : 'rgba(247, 244, 240, 0.76)',
                 })}
-                className="nav-underline"
               >
                 {item.label}
               </NavLink>
             ))}
-            <Link to="/contacto" className="btn btn-primary" style={{ marginLeft: '10px', padding: '11px 22px', fontSize: '0.98rem' }}>
-              Contacto
-            </Link>
+            <Link to="/contacto" className="btn nav-cta">Contacto</Link>
           </nav>
 
-          {/* Botón móvil */}
           <button
             className="mobile-menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '46px', height: '46px', background: 'var(--color-bg-alt)', border: '1px solid var(--color-line)', borderRadius: 'var(--radius-md)', color: 'var(--color-secondary)', cursor: 'pointer' }}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              width: '46px', height: '46px',
+              background: 'rgba(247, 244, 240, 0.10)',
+              border: '1px solid rgba(247, 244, 240, 0.18)',
+              borderRadius: 'var(--radius-md)',
+              color: '#F7F4F0', cursor: 'pointer',
+            }}
             aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={isMenuOpen}
           >
@@ -93,22 +108,15 @@ export default function PublicLayout() {
           </button>
         </div>
 
-        {/* Nav móvil */}
         {isMenuOpen && (
           <nav
-            className="mobile-nav"
             style={{
-              position: 'absolute',
-              top: '100%',
-              left: 0,
-              right: 0,
-              backgroundColor: 'var(--color-bg)',
+              position: 'absolute', top: '100%', left: 0, right: 0,
+              backgroundColor: '#2C3A24',
               padding: 'var(--space-md)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '2px',
-              boxShadow: 'var(--shadow-md)',
-              borderTop: '1px solid var(--color-line)',
+              display: 'flex', flexDirection: 'column', gap: '2px',
+              borderTop: '1px solid rgba(247, 244, 240, 0.10)',
+              boxShadow: '0 18px 40px rgba(20, 28, 16, 0.34)',
             }}
           >
             {NAV.map((item) => (
@@ -116,7 +124,12 @@ export default function PublicLayout() {
                 {item.label}
               </Link>
             ))}
-            <Link to="/contacto" className="btn btn-primary" style={{ textAlign: 'center', marginTop: 'var(--space-sm)' }} onClick={() => setIsMenuOpen(false)}>
+            <Link
+              to="/contacto"
+              className="btn btn-primary"
+              style={{ marginTop: 'var(--space-sm)', justifyContent: 'center' }}
+              onClick={() => setIsMenuOpen(false)}
+            >
               Contacto
             </Link>
           </nav>
@@ -132,22 +145,27 @@ export default function PublicLayout() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(215px, 1fr))',
               gap: 'var(--space-xl)',
               marginBottom: 'var(--space-2xl)',
             }}
           >
-            <div style={{ maxWidth: '320px' }}>
-              <img
-                src="/logotipo-interambiente.webp"
-                alt="Interambiente"
-                width="200"
-                height="187"
-                loading="lazy"
-                style={{ height: '44px', width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.92 }}
-              />
-              <p style={{ color: 'rgba(237, 231, 218, 0.72)', marginTop: 'var(--space-md)', fontSize: '1rem', lineHeight: 1.6 }}>
-                Acompañamos a las organizaciones en su cumplimiento ambiental y su transición hacia la sostenibilidad.
+            <div style={{ maxWidth: '330px' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '12px' }}>
+                <Isotipo size={38} variant="hueso" title="Interambiente" />
+                <Wordmark size={23} />
+              </span>
+              <p
+                style={{
+                  fontFamily: 'var(--font-display)', fontWeight: 300,
+                  fontSize: '0.63rem', letterSpacing: '0.26em', textTransform: 'uppercase',
+                  color: 'var(--color-accent)', marginTop: '12px', whiteSpace: 'nowrap',
+                }}
+              >
+                Aliados en sostenibilidad
+              </p>
+              <p style={{ color: 'rgba(237, 231, 218, 0.70)', marginTop: 'var(--space-md)', fontSize: '0.97rem', lineHeight: 1.65 }}>
+                Acompañamos a organizaciones públicas y privadas en el cumplimiento de la legislación ambiental y en la construcción de un modelo de negocio sostenible.
               </p>
             </div>
 
@@ -175,16 +193,16 @@ export default function PublicLayout() {
               <h4 style={footerHeadStyle}>Contacto</h4>
               <ul style={{ ...footerListStyle, gap: '12px' }}>
                 <li style={footerContactRow}>
-                  <Mail size={16} style={{ marginTop: '3px', flexShrink: 0, color: 'var(--color-primary-soft)' }} />
+                  <Mail size={16} style={{ marginTop: '3px', flexShrink: 0, color: 'var(--color-accent)' }} />
                   <a href="mailto:info@interambientesa.com" style={footerLinkStyle}>info@interambientesa.com</a>
                 </li>
                 <li style={footerContactRow}>
-                  <Phone size={16} style={{ marginTop: '3px', flexShrink: 0, color: 'var(--color-primary-soft)' }} />
-                  <span style={{ color: 'rgba(237, 231, 218, 0.72)' }}>+593 98 418 0479<br />+593 98 858 8532</span>
+                  <Phone size={16} style={{ marginTop: '3px', flexShrink: 0, color: 'var(--color-accent)' }} />
+                  <span style={{ color: 'rgba(237, 231, 218, 0.70)' }}>+593 98 418 0479<br />+593 98 858 8532</span>
                 </li>
                 <li style={footerContactRow}>
-                  <MapPin size={16} style={{ marginTop: '3px', flexShrink: 0, color: 'var(--color-primary-soft)' }} />
-                  <span style={{ color: 'rgba(237, 231, 218, 0.72)' }}>Edif. IQON, Av. de los Shyris y Suecia. Quito, Ecuador.</span>
+                  <MapPin size={16} style={{ marginTop: '3px', flexShrink: 0, color: 'var(--color-accent)' }} />
+                  <span style={{ color: 'rgba(237, 231, 218, 0.70)' }}>Edif. IQON, Av. de los Shyris y Suecia. Quito, Ecuador.</span>
                 </li>
               </ul>
             </div>
@@ -192,24 +210,21 @@ export default function PublicLayout() {
 
           <div
             style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-              alignItems: 'center',
+              display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center',
               gap: '12px',
-              color: 'rgba(237, 231, 218, 0.5)',
-              borderTop: '1px solid rgba(245, 240, 230, 0.12)',
+              color: 'rgba(237, 231, 218, 0.52)',
+              borderTop: '1px solid rgba(247, 244, 240, 0.12)',
               paddingTop: 'var(--space-lg)',
-              fontSize: '0.9rem',
+              fontSize: '0.88rem',
             }}
           >
             <p style={{ margin: 0 }}>
               © {new Date().getFullYear()} Interambiente S.A.S. ·{' '}
-              <Link to="/privacidad" style={{ color: 'rgba(237, 231, 218, 0.7)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Política de Privacidad</Link>
+              <Link to="/privacidad" style={{ color: 'rgba(237, 231, 218, 0.72)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Política de Privacidad</Link>
             </p>
             <p style={{ margin: 0, display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
               Diseñado por{' '}
-              <a href="https://innovacion.ec" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary-soft)', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '2px' }}>
+              <a href="https://innovacion.ec" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '2px' }}>
                 Innovación IA <ArrowUpRight size={13} />
               </a>
             </p>
@@ -218,52 +233,61 @@ export default function PublicLayout() {
       </footer>
 
       <style>{`
-        .nav-underline { position: relative; }
-        .nav-underline::after {
+        .nav-link { position: relative; transition: color 220ms; }
+        .nav-link::after {
           content: "";
           position: absolute;
-          left: 16px; right: 16px; bottom: 8px;
+          left: 14px; right: 14px; bottom: 9px;
           height: 2px;
-          background: var(--color-primary);
+          background: var(--color-accent);
           border-radius: 2px;
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 280ms var(--ease-out);
         }
-        .nav-underline:hover::after { transform: scaleX(1); }
-        footer a:hover { color: #fff !important; }
+        .nav-link:hover { color: #F7F4F0 !important; }
+        .nav-link:hover::after { transform: scaleX(1); }
+        .nav-cta {
+          margin-left: 12px;
+          padding: 10px 22px;
+          font-size: 0.96rem;
+          background-color: var(--color-primary);
+          color: #fff;
+          box-shadow: none;
+        }
+        .nav-cta:hover { background-color: #D27640; color: #fff; transform: translateY(-1px); }
+        footer a:hover { color: #F7F4F0 !important; }
       `}</style>
     </div>
   );
 }
 
 const navLinkStyle = {
-  fontFamily: 'var(--font-subtitle)',
+  fontFamily: 'var(--font-display)',
   fontWeight: 600,
-  fontSize: '0.98rem',
+  fontSize: '0.96rem',
   textDecoration: 'none',
-  padding: '12px 16px',
+  padding: '12px 14px',
   display: 'inline-block',
-  transition: 'color 220ms',
 };
 
 const mobileNavLinkStyle = {
-  fontFamily: 'var(--font-subtitle)',
+  fontFamily: 'var(--font-display)',
   fontWeight: 600,
   fontSize: '1.05rem',
-  color: 'var(--color-secondary)',
+  color: '#F7F4F0',
   textDecoration: 'none',
   padding: '15px 12px',
   display: 'block',
-  borderBottom: '1px solid var(--color-line)',
+  borderBottom: '1px solid rgba(247, 244, 240, 0.10)',
 };
 
 const footerHeadStyle = {
-  color: '#F5F0E6',
-  fontSize: '1rem',
-  fontFamily: 'var(--font-subtitle)',
+  color: '#F7F4F0',
+  fontSize: '0.78rem',
+  fontFamily: 'var(--font-display)',
   fontWeight: 700,
-  letterSpacing: '0.04em',
+  letterSpacing: '0.16em',
   textTransform: 'uppercase',
   marginBottom: 'var(--space-md)',
 };
@@ -278,16 +302,16 @@ const footerListStyle = {
 };
 
 const footerLinkStyle = {
-  color: 'rgba(237, 231, 218, 0.72)',
+  color: 'rgba(237, 231, 218, 0.70)',
   textDecoration: 'none',
   transition: 'color 220ms',
-  fontSize: '0.98rem',
+  fontSize: '0.97rem',
 };
 
 const footerContactRow = {
   display: 'flex',
   alignItems: 'flex-start',
   gap: '10px',
-  fontSize: '0.95rem',
+  fontSize: '0.94rem',
   lineHeight: 1.5,
 };
