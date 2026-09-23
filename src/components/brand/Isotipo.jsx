@@ -13,6 +13,10 @@
  * variant: 'color'  → full color (solo sobre blanco o blanco hueso)
  *          'hueso'  → monocromo hueso (sobre verde oscuro o foto de bajo contraste)
  *          'mono'   → hereda currentColor (escala de grises / usos de una tinta)
+ *
+ * frame:   'box'    → caja ajustada al contorno (uso general)
+ *          'circle' → cuadro centrado en el eje de giro, con las tres puntas a la
+ *                     misma distancia del centro; para marcos circulares (sello).
  */
 const PETAL = 'M0,0 C -60,-58 -40,-142 0,-160 C 40,-142 60,-58 0,0 Z';
 
@@ -23,6 +27,7 @@ export default function Isotipo({
   variant = 'color',
   title,
   animated = false,
+  frame = 'box',
   className = '',
   style = {},
   ...rest
@@ -38,11 +43,13 @@ export default function Isotipo({
   // Solo aplica en full color: en monocromo no hay dos tintas que mezclar.
   const blend = variant === 'color' ? 'multiply' : 'normal';
 
+  const circular = frame === 'circle';
+
   return (
     <svg
-      viewBox="-141 -162 282 254"
+      viewBox={circular ? '-170 -170 340 340' : '-141 -162 282 254'}
       width={size}
-      height={(size * 254) / 282}
+      height={circular ? size : (size * 254) / 282}
       className={className}
       style={{ display: 'block', overflow: 'visible', ...style }}
       role={title ? 'img' : undefined}
